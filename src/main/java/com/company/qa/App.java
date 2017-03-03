@@ -1,13 +1,20 @@
 package com.company.qa;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import com.company.qa.Positions.Position;
+
+public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Company company = new Company();
+        System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
+        for (Employee employee: company.getEmployeeList()) {
+            System.out.print(employee + "\t");
+            for (Position position: employee.getPositionList()) {
+                System.out.println(position);
+            }
+        }
+
+
     }
 }
