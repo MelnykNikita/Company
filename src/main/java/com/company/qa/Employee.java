@@ -9,7 +9,7 @@ import java.util.Random;
 public class Employee {
 
     private int amountOfPositions;
-    private List<Position> positionList;
+    private List<Position> positionList; // transform to SET !!! Hashset
 
     Employee(){
         this.amountOfPositions = new Random().nextInt(2) + 1;
