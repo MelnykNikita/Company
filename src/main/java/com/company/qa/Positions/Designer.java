@@ -5,4 +5,8 @@ public class Designer implements Position {
     public Designer(){
 
     }
+
+    public String getName() {
+        return "Designer";
+    }
 }

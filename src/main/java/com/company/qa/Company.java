@@ -10,10 +10,13 @@ public class Company {
     private List<Employee> employeeList;
 
     Company(){
-        this.amountOfEmployees = new Random().nextInt(90) + 10;
+
         employeeList = new ArrayList<Employee>();
+
+        this.amountOfEmployees = new Random().nextInt(90) + 10; //Addition of employees
         for (int i = 1; i <= amountOfEmployees; i++){
             employeeList.add(new Employee());
+
         }
     }
 

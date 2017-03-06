@@ -5,4 +5,8 @@ public class Tester implements Position {
     public Tester(){
 
     }
+
+    public String getName() {
+        return "Tester";
+    }
 }

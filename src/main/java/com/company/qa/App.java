@@ -9,10 +9,11 @@ public class App
         Company company = new Company();
         System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
         for (Employee employee: company.getEmployeeList()) {
-            System.out.print(employee + "\t");
+            System.out.print(employee + ":\t");
             for (Position position: employee.getPositionList()) {
-                System.out.println(position);
+                System.out.print(position + "\t");
             }
+            System.out.println();
         }
 
 

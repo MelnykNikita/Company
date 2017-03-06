@@ -2,35 +2,52 @@ package com.company.qa;
 
 import com.company.qa.Positions.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Employee {
 
     private int amountOfPositions;
-    private List<Position> positionList; // transform to SET !!! Hashset
+    private Set<Position> positionList;
 
-    Employee(){
-        this.amountOfPositions = new Random().nextInt(2) + 1;
-        positionList = new ArrayList<Position>();
-        for (int i = 1; i <= amountOfPositions; i++){
+    private Programmer programmer;
+    private Designer designer;
+    private Tester tester;
+    private Manager manager;
+
+    Employee() {
+
+        positionList = new HashSet<Position>();
+        programmer = new Programmer();
+        designer = new Designer();
+        tester = new Tester();
+        manager = new Manager();
+
+        this.amountOfPositions = new Random().nextInt(2) + 1; //Addition of positions for employee
+        for (int i = 1; i <= amountOfPositions; i++) {
             positionList.add(getSelectedPosition());
+
         }
     }
 
-    public Position getSelectedPosition(){
+    private Position getSelectedPosition() {
+
         int numberForPosition = new Random().nextInt(4) + 1;
-        switch (numberForPosition){
-            case 1: return new Programmer();
-            case 2: return new Designer();
-            case 3: return new Tester();
-            case 4: return new Manager();
-            default: return null;
-        }
+
+            switch (numberForPosition) {
+                case 1:
+                    return programmer;
+                case 2:
+                    return designer;
+                case 3:
+                    return tester;
+                case 4:
+                    return manager;
+                default:
+                    return null;
+            }
     }
 
-    public List<Position> getPositionList(){
+    public Set<Position> getPositionList(){
         return positionList;
     }
 }
