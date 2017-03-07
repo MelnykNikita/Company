@@ -11,7 +11,7 @@ public class App
         for (Employee employee: company.getEmployeeList()) {
             System.out.print(employee + ":\t" + employee.getWorkHoursPerWeek() + "\t");
             for (Position position: employee.getPositionList()) {
-                System.out.print(position.getName() + "\t");
+                System.out.print(position.getNameOfPosition() + "\t");
             }
             System.out.println();
         }

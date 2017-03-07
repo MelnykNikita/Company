@@ -1,16 +1,20 @@
 package com.company.qa.Positions;
 
-public class Programmer implements Position {
+public class Programmer implements Position, Responsible {
 
     public Programmer(){
 
     }
 
-    public String getName(){
+    public String getNameOfPosition(){
         return "Programmer";
     }
 
     public int getSalaryRate() {
         return 8;
+    }
+
+    public String getNameOfResponsibility() {
+        return "Write code";
     }
 }

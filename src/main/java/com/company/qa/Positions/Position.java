@@ -2,6 +2,6 @@ package com.company.qa.Positions;
 
 public interface Position {
 
-    String getName();
+    String getNameOfPosition();
     int getSalaryRate();
 }
