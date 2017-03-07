@@ -29,6 +29,16 @@ public class Employee {
         }
     }
 
+    Employee(Chief chief) {
+        positionList = new HashSet<Position>();
+        positionList.add(chief);
+    }
+
+    Employee(Accountant accountant) {
+        positionList = new HashSet<Position>();
+        positionList.add(accountant);
+    }
+
     private Position getSelectedPosition() {
 
         int numberForPosition = new Random().nextInt(4) + 1;
