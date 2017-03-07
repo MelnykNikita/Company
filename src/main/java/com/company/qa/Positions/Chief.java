@@ -5,4 +5,8 @@ public class Chief implements Position {
     public String getName() {
         return "Chief";
     }
+
+    public int getSalaryRate() {
+        return 2000;
+    }
 }

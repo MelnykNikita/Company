@@ -9,4 +9,8 @@ public class Designer implements Position {
     public String getName() {
         return "Designer";
     }
+
+    public int getSalaryRate() {
+        return 6;
+    }
 }

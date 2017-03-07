@@ -9,4 +9,8 @@ public class Manager implements Position {
     public String getName() {
         return "Manager";
     }
+
+    public int getSalaryRate() {
+        return 1800;
+    }
 }
