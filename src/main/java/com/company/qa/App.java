@@ -1,6 +1,7 @@
 package com.company.qa;
 
 import com.company.qa.Positions.Position;
+import com.company.qa.Positions.Responsible;
 
 public class App
 {
@@ -12,6 +13,9 @@ public class App
             System.out.print(employee + ":\t" + employee.getWorkHoursPerWeek() + "\t");
             for (Position position: employee.getPositionList()) {
                 System.out.print(position.getNameOfPosition() + "\t");
+            }
+            for (Responsible responsible: employee.getResponsibilities()) {
+                System.out.println(responsible.getNameOfResponsibility() + "\t");
             }
             System.out.println();
         }

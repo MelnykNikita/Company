@@ -7,7 +7,7 @@ public class Task {
     private int hoursPerTask;
     private String name;
 
-    Task(String name) {
+    public Task(String name) {
         this.hoursPerTask = new Random().nextInt(2) + 1;
         this.name = name;
     }
