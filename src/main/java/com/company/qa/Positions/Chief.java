@@ -12,7 +12,7 @@ public class Chief implements Position, Responsible {
 
     private int amountOfGivenTasks;
 
-    private Set<Task> taskList;
+    private Set<Task> ChiefsTaskList;
     private Task taskForTesters = new Task("Test program");
     private Task taskForProgrammers = new Task("Write code");
     private Task taskForManagers = new Task("Sell services");
@@ -21,7 +21,7 @@ public class Chief implements Position, Responsible {
 
 
     public Chief() {
-        taskList = new HashSet<Task>();
+        ChiefsTaskList = new HashSet<Task>();
         addTasksToList();
         amountOfGivenTasks = new Random().nextInt(2) + 1; //Amount of given tasks for every employee
     }
@@ -34,9 +34,9 @@ public class Chief implements Position, Responsible {
         for (Employee employee: employeeList) {
             for (Responsible responsible: employee.getResponsibilities()) {
                 for (int i = 1; i <= amountOfGivenTasks; i++) {
-                    for (Task task: taskList) {
+                    for (Task task: ChiefsTaskList) {
                         if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())) {
-                            employee.getTaskList().add(new Task("Task " + new Random().nextInt(1000) + 1));
+                            employee.getTaskList().add(new Task(responsible));
                         }
                     }
                 }
@@ -53,11 +53,10 @@ public class Chief implements Position, Responsible {
     }
 
     private void addTasksToList() {
-        taskList.add(taskForTesters);
-        taskList.add(taskForProgrammers);
-        taskList.add(taskForManagers);
-        taskList.add(taskForDesigners);
-        taskList.add(taskForAccountant);
+        ChiefsTaskList.add(taskForTesters);
+        ChiefsTaskList.add(taskForProgrammers);
+        ChiefsTaskList.add(taskForManagers);
+        ChiefsTaskList.add(taskForDesigners);
+        ChiefsTaskList.add(taskForAccountant);
     }
-
 }

@@ -24,8 +24,8 @@ public class Company {
         this.amountOfEmployees = new Random().nextInt(90) + 8; //Addition of employees
         for (int i = 1; i <= amountOfEmployees; i++){
             employeeList.add(new Employee());
-
         }
+        chief.giveTask(employeeList);
     }
 
     public int getAmountOfEmployees(){
