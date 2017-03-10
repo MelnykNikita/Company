@@ -2,7 +2,6 @@ package com.company.qa.Positions;
 
 import com.company.qa.Employee;
 import com.company.qa.Task.Task;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
@@ -23,7 +22,6 @@ public class Chief implements Position, Responsible {
     public Chief() {
         ChiefsTaskList = new HashSet<Task>();
         addTasksToList();
-        amountOfGivenTasks = new Random().nextInt(2) + 1; //Amount of given tasks for every employee
     }
 
     public String getNameOfResponsibility() {
@@ -31,10 +29,11 @@ public class Chief implements Position, Responsible {
     }
 
     public void giveTask(List<Employee> employeeList) {
-        for (Employee employee: employeeList) {
-            for (Responsible responsible: employee.getResponsibilities()) {
-                for (int i = 1; i <= amountOfGivenTasks; i++) {
-                    for (Task task: ChiefsTaskList) {
+        amountOfGivenTasks = new Random().nextInt(2) + 1; //Amount of given tasks for every employee
+        for (int i = 1; i <= amountOfGivenTasks; i++) {
+            for (Employee employee : employeeList) {
+                for (Responsible responsible : employee.getResponsibilities()) {
+                    for (Task task : ChiefsTaskList) {
                         if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())) {
                             employee.getTaskList().add(new Task(responsible));
                         }

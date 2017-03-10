@@ -2,7 +2,6 @@ package com.company.qa;
 
 import com.company.qa.Positions.*;
 import com.company.qa.Task.Task;
-
 import java.util.*;
 
 public class Employee {
@@ -10,6 +9,7 @@ public class Employee {
     private int workHoursPerWeek;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
+    private Task currentTask;
     private int workHoursPerTaskList;
 
     private Set<Position> positionList;
@@ -24,11 +24,12 @@ public class Employee {
     Employee() {
 
         positionList = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+
         programmer = new Programmer();
         designer = new Designer();
         tester = new Tester();
         manager = new Manager();
-        responsibilities = new HashSet<Responsible>();
 
         this.workHoursPerWeek = new Random().nextInt(6) + 35; //Setting of MAX work-hours per week
 
@@ -56,6 +57,16 @@ public class Employee {
         this.workHoursPerWeek = 40;
     }
 
+    public void setCurrentTask() { //TODO
+        if (taskList != null)
+        currentTask = taskList.get(0);
+        else System.out.println("task list == NULL");
+    }
+
+    public Task getCurrentTask() {
+        return currentTask;
+    }
+
     public int getWorkHoursPerWeek() {
         return workHoursPerWeek;
     }
@@ -66,6 +77,10 @@ public class Employee {
 
     public Set<Responsible> getResponsibilities() {
         return responsibilities;
+    }
+
+    public List<Task> getTaskList() {
+        return taskList;
     }
 
     private Position getSelectedPosition(int numberForPosition) {
@@ -98,9 +113,5 @@ public class Employee {
             default:
                 return null;
         }
-    }
-
-    public List<Task> getTaskList() {
-        return taskList;
     }
 }

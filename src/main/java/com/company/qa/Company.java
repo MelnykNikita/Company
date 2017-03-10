@@ -25,7 +25,14 @@ public class Company {
         for (int i = 1; i <= amountOfEmployees; i++){
             employeeList.add(new Employee());
         }
-        chief.giveTask(employeeList);
+        chief.giveTask(employeeList); //Chief gives tasks for employees
+
+    }
+
+    public void setCurrentTasksForEmployees() {
+        for (Employee employee: employeeList) {
+            employee.setCurrentTask();
+        }
     }
 
     public int getAmountOfEmployees(){
