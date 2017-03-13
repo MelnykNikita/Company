@@ -9,7 +9,7 @@ public class Employee {
     private int workHoursPerWeek;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
-    private int workedHoursPerTask;
+    private int workedHours = 0;
 
     private Set<Position> positionList;
     private Programmer programmer;
@@ -117,5 +117,13 @@ public class Employee {
             default:
                 return null;
         }
+    }
+
+    public int getWorkedHours() {
+        return workedHours;
+    }
+
+    public void setWorkedHours(int workedHours) {
+        this.workedHours = workedHours;
     }
 }

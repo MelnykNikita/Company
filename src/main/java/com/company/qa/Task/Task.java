@@ -1,7 +1,6 @@
 package com.company.qa.Task;
 
 import com.company.qa.Positions.Responsible;
-
 import java.util.Random;
 
 public class Task {
@@ -9,6 +8,7 @@ public class Task {
     private int hoursPerTask;
     private String name;
     private boolean isCurrent = false;
+    private int workedHoursPerTask = 0;
 
     public Task(Responsible responsible) {
         this.hoursPerTask = new Random().nextInt(2) + 1;
@@ -33,5 +33,17 @@ public class Task {
 
     public void setCurrentTask(boolean current) {
         isCurrent = current;
+    }
+
+    public int getWorkedHoursPerTask() {
+        return workedHoursPerTask;
+    }
+
+    public void incrementWorkedHoursPerTask() {
+        workedHoursPerTask++;
+    }
+
+    public void setWorkedHoursPerTask(int workedHoursPerTask) {
+        this.workedHoursPerTask = workedHoursPerTask;
     }
 }

@@ -37,6 +37,8 @@ public class Company {
         chief.giveTask(employeeList); //Chief gives tasks for employees
     }
 
+    public void
+
     public int getAmountOfEmployees(){
         return amountOfEmployees;
     }
