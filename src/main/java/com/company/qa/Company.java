@@ -2,6 +2,10 @@ package com.company.qa;
 
 import com.company.qa.Positions.Accountant;
 import com.company.qa.Positions.Chief;
+import com.company.qa.Positions.Position;
+import com.company.qa.Positions.Programmer;
+import com.company.qa.Task.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -37,7 +41,15 @@ public class Company {
         chief.giveTask(employeeList); //Chief gives tasks for employees
     }
 
-    public void
+    public void setWorkHours() {
+        for (Employee employee: employeeList) {
+            for (Task task: employee.getTaskList()) {
+                for (Position position: employee.getPositionList())
+                    if (position.getNameOfPosition() == new Programmer().getNameOfPosition()) //TODO IT interface
+                        employee.setWorkedHours(100);
+            }
+        }
+    }
 
     public int getAmountOfEmployees(){
         return amountOfEmployees;
