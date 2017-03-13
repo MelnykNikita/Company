@@ -9,8 +9,7 @@ public class Employee {
     private int workHoursPerWeek;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
-    private Task currentTask;
-    private int workHoursPerTaskList;
+    private int workedHoursPerTask;
 
     private Set<Position> positionList;
     private Programmer programmer;
@@ -19,7 +18,6 @@ public class Employee {
     private Manager manager;
 
     private Set<Responsible> responsibilities;
-
 
     Employee() {
 
@@ -45,7 +43,6 @@ public class Employee {
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
         positionList.add(chief);
-        responsibilities.add(chief);
         this.workHoursPerWeek = 40;
     }
 
@@ -57,14 +54,21 @@ public class Employee {
         this.workHoursPerWeek = 40;
     }
 
-    public void setCurrentTask() { //TODO
-        if (taskList != null)
-        currentTask = taskList.get(0);
+    public void setCurrentTask() {
+        if (taskList != null) {
+            for (Task task: taskList)
+            taskList.get(0).setCurrentTask(true);
+        }
         else System.out.println("task list == NULL");
     }
 
     public Task getCurrentTask() {
-        return currentTask;
+        for (Task task: taskList) {
+            if (task.getStatusOfTask() == true) {
+                return task;
+            }
+        }
+        return null;
     }
 
     public int getWorkHoursPerWeek() {

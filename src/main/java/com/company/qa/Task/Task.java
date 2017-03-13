@@ -8,6 +8,7 @@ public class Task {
 
     private int hoursPerTask;
     private String name;
+    private boolean isCurrent = false;
 
     public Task(Responsible responsible) {
         this.hoursPerTask = new Random().nextInt(2) + 1;
@@ -24,5 +25,13 @@ public class Task {
 
     public String getName() {
         return name;
+    }
+
+    public boolean getStatusOfTask() {
+        return isCurrent;
+    }
+
+    public void setCurrentTask(boolean current) {
+        isCurrent = current;
     }
 }

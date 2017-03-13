@@ -8,6 +8,12 @@ public class App
     public static void main( String[] args )
     {
         Company company = new Company();
+        for (int i = 1; i <= 8; i++) {
+            company.chiefGivesTasksForEmployees();
+            company.setCurrentTasksForEmployees();
+        }
+
+
 
         System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
         for (Employee employee: company.getEmployeeList()) {
@@ -17,15 +23,13 @@ public class App
             }
             System.out.println();
             for (Task task: employee.getTaskList()) {
-                System.out.println(task.getHoursPerTask() + " hrs" + "\t" + task.getName());
+                System.out.println(task.getHoursPerTask()
+                        + " hrs" + "\t" + task.getName() + "\t" + task.getStatusOfTask());
             }
             System.out.println();
         }
 
-        //company.setCurrentTasksForEmployees();
-        for (Employee employee: company.getEmployeeList()) {
-            System.out.println(employee.getTaskList().size());
-        }
+
 
     }
 }

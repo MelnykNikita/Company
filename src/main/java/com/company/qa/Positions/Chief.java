@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class Chief implements Position, Responsible {
+public class Chief implements Position {
 
     private int amountOfGivenTasks;
 
@@ -22,10 +22,6 @@ public class Chief implements Position, Responsible {
     public Chief() {
         ChiefsTaskList = new HashSet<Task>();
         addTasksToList();
-    }
-
-    public String getNameOfResponsibility() {
-        return "Give tasks";
     }
 
     public void giveTask(List<Employee> employeeList) {
