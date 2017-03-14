@@ -10,6 +10,7 @@ public class Employee {
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
     private int workedHours = 0;
+    private int index = 0;
 
     private Set<Position> positionList;
     private Programmer programmer;
@@ -54,39 +55,6 @@ public class Employee {
         this.workHoursPerWeek = 40;
     }
 
-    public void setCurrentTask() {
-        if (taskList != null) {
-            for (Task task: taskList)
-            taskList.get(0).setCurrentTask(true);
-        }
-        else System.out.println("task list == NULL");
-    }
-
-    public Task getCurrentTask() {
-        for (Task task: taskList) {
-            if (task.getStatusOfTask() == true) {
-                return task;
-            }
-        }
-        return null;
-    }
-
-    public int getWorkHoursPerWeek() {
-        return workHoursPerWeek;
-    }
-
-    public Set<Position> getPositionList(){
-        return positionList;
-    }
-
-    public Set<Responsible> getResponsibilities() {
-        return responsibilities;
-    }
-
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-
     private Position getSelectedPosition(int numberForPosition) {
 
         switch (numberForPosition) {
@@ -119,6 +87,37 @@ public class Employee {
         }
     }
 
+    public void setCurrentTask() {
+            for (Task task: taskList)
+            taskList.get(index).setCurrentTask(true);
+            index++;
+    }
+
+    public Task getCurrentTask() {
+        for (Task task: taskList) {
+            if (task.getStatusOfTask() == true) {
+                return task;
+            }
+        }
+        return null;
+    }
+
+    public int getWorkHoursPerWeek() {
+        return workHoursPerWeek;
+    }
+
+    public Set<Position> getPositionList(){
+        return positionList;
+    }
+
+    public Set<Responsible> getResponsibilities() {
+        return responsibilities;
+    }
+
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
     public int getWorkedHours() {
         return workedHours;
     }
@@ -126,4 +125,17 @@ public class Employee {
     public void setWorkedHours(int workedHours) {
         this.workedHours = workedHours;
     }
+
+    public void incrementWorkedHours() {
+        this.workedHours++;
+    }
+
+    public void removeExecutedTask() {
+        for (Task task: taskList) {
+            if (task.isTaskExecuted()) {
+                task = null;
+            }
+        }
+    }
+
 }

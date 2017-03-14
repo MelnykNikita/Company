@@ -46,4 +46,12 @@ public class Task {
     public void setWorkedHoursPerTask(int workedHoursPerTask) {
         this.workedHoursPerTask = workedHoursPerTask;
     }
+
+    public boolean isTaskExecuted() {
+        if (hoursPerTask == workedHoursPerTask) {
+            isCurrent = false;
+            return true;
+        }
+        return false;
+    }
 }

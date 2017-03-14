@@ -41,13 +41,17 @@ public class Company {
         chief.giveTask(employeeList); //Chief gives tasks for employees
     }
 
-    public void setWorkHours() {
+    public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
             for (Task task: employee.getTaskList()) {
-                for (Position position: employee.getPositionList())
+                /*for (Position position: employee.getPositionList())
                     if (position.getNameOfPosition() == new Programmer().getNameOfPosition()) //TODO IT interface
-                        employee.setWorkedHours(100);
+                        employee.setWorkedHours(100);*/
+                if (task.getStatusOfTask() == true)
+                task.incrementWorkedHoursPerTask();
             }
+            employee.incrementWorkedHours();
+            employee.removeExecutedTask();
         }
     }
 
