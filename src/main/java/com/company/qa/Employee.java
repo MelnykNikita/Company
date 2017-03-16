@@ -87,15 +87,31 @@ public class Employee {
         }
     }
 
-    public void setCurrentTask() {
-            for (Task task: taskList)
+    /*public void setCurrentTask() {  //TODO
+        for (Task task: taskList) {
+            if (task.isTaskCurrent() == false)
             taskList.get(index).setCurrentTask(true);
-            index++;
+        }
+        index++;
+    }*/
+
+    public void setCurrentTask() {  //TODO
+        for (Task task: taskList) {
+            if (task.isTaskExecuted()) {
+                taskList.get(index).setCurrentTask(false);
+                index++;
+                //taskList.get(index).setCurrentTask(true);
+
+            }
+            else {
+                taskList.get(index).setCurrentTask(true);
+            }
+        }
     }
 
     public Task getCurrentTask() {
         for (Task task: taskList) {
-            if (task.getStatusOfTask() == true) {
+            if (task.isTaskCurrent() == true) {
                 return task;
             }
         }
@@ -133,7 +149,7 @@ public class Employee {
     public void removeExecutedTask() {
         for (Task task: taskList) {
             if (task.isTaskExecuted()) {
-                task = null;
+                task.setCurrentTask(false);
             }
         }
     }

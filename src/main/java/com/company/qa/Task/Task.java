@@ -7,8 +7,9 @@ public class Task {
 
     private int hoursPerTask;
     private String name;
-    private boolean isCurrent = false;
+    private boolean isCurrent;
     private int workedHoursPerTask = 0;
+    private boolean isDone;
 
     public Task(Responsible responsible) {
         this.hoursPerTask = new Random().nextInt(2) + 1;
@@ -27,7 +28,7 @@ public class Task {
         return name;
     }
 
-    public boolean getStatusOfTask() {
+    public boolean isTaskCurrent() {
         return isCurrent;
     }
 
@@ -50,8 +51,13 @@ public class Task {
     public boolean isTaskExecuted() {
         if (hoursPerTask == workedHoursPerTask) {
             isCurrent = false;
+            isDone = true;
             return true;
         }
         return false;
+    }
+
+    public boolean isTaskDone() {
+        return isDone;
     }
 }

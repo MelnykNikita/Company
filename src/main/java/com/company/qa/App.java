@@ -5,10 +5,10 @@ import com.company.qa.Task.Task;
 
 public class App
 {
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) throws InterruptedException {
         Company company = new Company();
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i < 5; i++) {
+            System.out.println(i + "\t");
             company.chiefGivesTasksForEmployees();
             company.setCurrentTasksForEmployees();
             company.incrementWorkedHours();
@@ -26,7 +26,8 @@ public class App
             System.out.println();
             for (Task task: employee.getTaskList()) {
                 System.out.println(task.getHoursPerTask()
-                        + " hrs" + "\t" + task.getName() + "\t" + task.getStatusOfTask());
+                        + " hrs" + "\t" + task.getName() + "\t"
+                        + task.isTaskCurrent() + "\t" + task.getWorkedHoursPerTask());
             }
             System.out.println();
         }
