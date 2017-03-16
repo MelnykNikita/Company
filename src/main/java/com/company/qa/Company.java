@@ -2,8 +2,6 @@ package com.company.qa;
 
 import com.company.qa.Positions.Accountant;
 import com.company.qa.Positions.Chief;
-import com.company.qa.Task.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,16 +43,6 @@ public class Company {
 
     public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
-            for (Task task: employee.getTaskList()) {
-                if (task.isTaskCurrent()) {
-                    task.incrementWorkedHoursPerTask();
-                }
-                /*if (task.isTaskExecuted()) {
-                    //task.incrementWorkedHoursPerTask();
-                    task.setCurrentTask(false);
-                }*/
-            }
-            //employee.removeExecutedTask();
             employee.incrementWorkedHours();
         }
     }

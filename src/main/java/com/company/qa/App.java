@@ -7,7 +7,7 @@ public class App
 {
     public static void main( String[] args ) throws InterruptedException {
         Company company = new Company();
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 9; i++) {
             System.out.println(i + "\t");
             company.chiefGivesTasksForEmployees();
             company.setCurrentTasksForEmployees();

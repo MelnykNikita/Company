@@ -9,6 +9,7 @@ public class Employee {
     private int workHoursPerWeek;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
+    Iterator<Task> iterator = taskList.iterator();
     private int workedHours = 0;
     private int index = 0;
 
@@ -87,29 +88,19 @@ public class Employee {
         }
     }
 
-    /*public void setCurrentTask() {  //TODO
-        for (Task task: taskList) {
-            if (task.isTaskCurrent() == false)
-            taskList.get(index).setCurrentTask(true);
-        }
-        index++;
-    }*/
-
-    public void setCurrentTask() {  //TODO
-        for (Task task: taskList) {
-            if (task.isTaskExecuted()) {
-                taskList.get(index).setCurrentTask(false);
-                index++;
-                //taskList.get(index).setCurrentTask(true);
-
-            }
-            else {
+    public void setCurrentTask() {
+        if (iterator.hasNext()) {
+            if (index == 0 || !(taskList.get(index).isTaskExecuted())){
                 taskList.get(index).setCurrentTask(true);
+                taskList.get(index).incrementWorkedHoursPerTask();
+            }
+            if (taskList.get(index).isTaskExecuted()) {
+                index++;
             }
         }
     }
 
-    public Task getCurrentTask() {
+        public Task getCurrentTask() {
         for (Task task: taskList) {
             if (task.isTaskCurrent() == true) {
                 return task;
@@ -144,14 +135,6 @@ public class Employee {
 
     public void incrementWorkedHours() {
         this.workedHours++;
-    }
-
-    public void removeExecutedTask() {
-        for (Task task: taskList) {
-            if (task.isTaskExecuted()) {
-                task.setCurrentTask(false);
-            }
-        }
     }
 
 }
