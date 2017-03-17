@@ -1,6 +1,6 @@
 package com.company.qa.Positions;
 
-public class Tester implements Position, Responsible {
+public class Tester implements Position, Responsible, IT {
 
     public Tester() {
 

@@ -1,6 +1,6 @@
 package com.company.qa.Positions;
 
-public class Designer implements Position, Responsible {
+public class Designer implements Position, Responsible, IT {
 
     public Designer(){
 

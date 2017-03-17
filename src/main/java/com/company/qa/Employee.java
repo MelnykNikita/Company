@@ -11,6 +11,7 @@ public class Employee {
     private List<Task> taskList = new ArrayList<Task>();
     Iterator<Task> iterator = taskList.iterator();
     private int workedHours = 0;
+    private int workedHoursIT = 0;
     private int index = 0;
 
     private Set<Position> positionList;
@@ -93,6 +94,11 @@ public class Employee {
             if (index == 0 || !(taskList.get(index).isTaskExecuted())){
                 taskList.get(index).setCurrentTask(true);
                 taskList.get(index).incrementWorkedHoursPerTask();
+                for (Responsible responsible: getResponsibilities())
+                if (taskList.get(index).getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
+                        && responsible instanceof IT) {
+                    incrementWorkedHoursIT();
+                }
             }
             if (taskList.get(index).isTaskExecuted()) {
                 index++;
@@ -137,4 +143,11 @@ public class Employee {
         this.workedHours++;
     }
 
+    public void incrementWorkedHoursIT() {
+        this.workedHoursIT++;
+    }
+
+    public int getWorkedHoursIT() {
+        return workedHoursIT;
+    }
 }

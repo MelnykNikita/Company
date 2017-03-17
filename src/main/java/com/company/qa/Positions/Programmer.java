@@ -1,6 +1,6 @@
 package com.company.qa.Positions;
 
-public class Programmer implements Position, Responsible {
+public class Programmer implements Position, Responsible, IT {
 
     public Programmer(){
 

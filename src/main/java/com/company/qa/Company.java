@@ -1,7 +1,8 @@
 package com.company.qa;
 
-import com.company.qa.Positions.Accountant;
-import com.company.qa.Positions.Chief;
+import com.company.qa.Positions.*;
+import com.company.qa.Task.Task;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
