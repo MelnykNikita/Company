@@ -9,10 +9,13 @@ public class Employee {
     private int workHoursPerWeek;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
-    Iterator<Task> iterator = taskList.iterator();
+    private Iterator<Task> iterator = taskList.iterator();
     private int workedHours = 0;
     private int workedHoursIT = 0;
     private int index = 0;
+    private int workedHoursAsProgrammer = 0;
+    private int workedHoursAsDesigner = 0;
+    private int workedHoursAsTester = 0;
 
     private Set<Position> positionList;
     private Programmer programmer;
@@ -89,30 +92,44 @@ public class Employee {
         }
     }
 
+    private void incrementWorkedHoursIT(Task task) {
+        for (Responsible responsible: getResponsibilities())
+            if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
+                    && responsible instanceof IT) {
+                this.workedHoursIT++;
+            }
+    }
+
+    private void incrementWorkedHoursByITPosition(Task task) {
+        for (Responsible responsible: getResponsibilities()) {
+            if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
+                    && responsible instanceof Programmer) {
+                this.workedHoursAsProgrammer++;
+            }
+            if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
+                    && responsible instanceof Designer) {
+                this.workedHoursAsDesigner++;
+            }
+            if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
+                    && responsible instanceof Tester) {
+                this.workedHoursAsTester++;
+            }
+        }
+    }
+
     public void setCurrentTask() {
         if (iterator.hasNext()) {
             if (index == 0 || !(taskList.get(index).isTaskExecuted())){
-                taskList.get(index).setCurrentTask(true);
-                taskList.get(index).incrementWorkedHoursPerTask();
-                for (Responsible responsible: getResponsibilities())
-                if (taskList.get(index).getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
-                        && responsible instanceof IT) {
-                    incrementWorkedHoursIT();
-                }
+                Task task = taskList.get(index); //TODO Refactoring
+                task.setCurrentTask(true);
+                task.incrementWorkedHoursPerTask();
+                incrementWorkedHoursIT(task);
+                incrementWorkedHoursByITPosition(task);
             }
             if (taskList.get(index).isTaskExecuted()) {
                 index++;
             }
         }
-    }
-
-        public Task getCurrentTask() {
-        for (Task task: taskList) {
-            if (task.isTaskCurrent() == true) {
-                return task;
-            }
-        }
-        return null;
     }
 
     public int getWorkHoursPerWeek() {
@@ -135,19 +152,23 @@ public class Employee {
         return workedHours;
     }
 
-    public void setWorkedHours(int workedHours) {
-        this.workedHours = workedHours;
-    }
-
     public void incrementWorkedHours() {
         this.workedHours++;
     }
 
-    public void incrementWorkedHoursIT() {
-        this.workedHoursIT++;
-    }
-
     public int getWorkedHoursIT() {
         return workedHoursIT;
+    }
+
+    public int getWorkedHoursAsProgrammer() {
+        return workedHoursAsProgrammer;
+    }
+
+    public int getWorkedHoursAsDesigner() {
+        return workedHoursAsDesigner;
+    }
+
+    public int getWorkedHoursAsTester() {
+        return workedHoursAsTester;
     }
 }

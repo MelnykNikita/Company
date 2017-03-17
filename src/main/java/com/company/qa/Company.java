@@ -38,10 +38,6 @@ public class Company {
         chief.giveTask(employeeList); //Chief gives tasks for employees
     }
 
-    /*for (Position position: employ2ee.getPositionList())
-                    if (position.getNameOfPosition() == new Programmer().getNameOfPosition()) //TODO IT interface
-                        employee.setWorkedHours(100);*/
-
     public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
             employee.incrementWorkedHours();
