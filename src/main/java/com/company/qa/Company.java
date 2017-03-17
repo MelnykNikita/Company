@@ -1,7 +1,6 @@
 package com.company.qa;
 
 import com.company.qa.Positions.*;
-import com.company.qa.Task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,19 +27,27 @@ public class Company {
         }
     }
 
-    public void setCurrentTasksForEmployees() {
-        for (Employee employee: employeeList) {
-            employee.setCurrentTask();
-        }
-    }
-
     public void chiefGivesTasksForEmployees() {
         chief.giveTask(employeeList); //Chief gives tasks for employees
     }
 
+    public void setCurrentTasksForEmployees() {
+        for (Employee employee: employeeList) {
+            if (employee.getWorkHoursPerWeek() != employee.getWorkedHours()) {
+                employee.setCurrentTask();
+            }
+            else {
+                                            //TODO give tasks for freelancers
+            }
+        }
+    }
+
     public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
-            employee.incrementWorkedHours();
+            if (employee.getWorkHoursPerWeek() >= employee.getWorkedHours()) {
+                employee.incrementWorkedHours();
+            }
+
         }
     }
 
@@ -51,4 +58,5 @@ public class Company {
     public List<Employee> getEmployeeList(){
         return employeeList;
     }
+
 }
