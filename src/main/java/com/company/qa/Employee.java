@@ -45,6 +45,8 @@ public class Employee {
         }
     }
 
+
+
     Employee(Chief chief) {
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();

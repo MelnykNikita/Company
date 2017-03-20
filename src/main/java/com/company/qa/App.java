@@ -17,6 +17,7 @@ public class App
 
 
         System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
+
         for (Employee employee: company.getEmployeeList()) {
             System.out.print(employee + ":  " + employee.getWorkHoursPerWeek() + " hrs/week \t"
                     + employee.getWorkedHours() + " hrs/work \t"
@@ -33,9 +34,16 @@ public class App
                         + " hrs" + "\t" + task.getName() + "\t"
                         + task.isTaskCurrent() + "\t" + task.getWorkedHoursPerTask());
             }
-            System.out.println();
+            System.out.println("---------------------------------------------------------");
         }
 
+        for (Freelancer freelancer: company.getFreelancerList()) {
+            System.out.println(freelancer + ":  " + freelancer.getWorkHoursPerWeek() + " hrs/week \t"
+                    + freelancer.getWorkedHours() + " hrs/work \t");
+            for (Position position: freelancer.getPosition()) {
+                System.out.println(position.getNameOfPosition() + "\t");
+            }
+        }
 
 
     }
