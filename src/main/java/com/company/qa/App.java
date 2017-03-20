@@ -8,7 +8,7 @@ public class App
     public static void main( String[] args ) throws InterruptedException {
         Company company = new Company();
         for (int i = 1; i < 41; i++) {
-            System.out.println(i + "\t");
+            //System.out.println(i + "\t");
             company.chiefGivesTasksForEmployees();
             company.setCurrentTasksForEmployees();
             company.incrementWorkedHours();
@@ -37,13 +37,24 @@ public class App
             System.out.println("---------------------------------------------------------");
         }
 
+        System.out.println("Freelancers.............................");
+
         for (Freelancer freelancer: company.getFreelancerList()) {
             System.out.println(freelancer + ":  " + freelancer.getWorkHoursPerWeek() + " hrs/week \t"
                     + freelancer.getWorkedHours() + " hrs/work \t");
             for (Position position: freelancer.getPosition()) {
                 System.out.println(position.getNameOfPosition() + "\t");
             }
+            System.out.println();
+            /*for (Task task: freelancer.getTaskList()) {
+                System.out.println(task.getHoursPerTask()
+                        + " hrs" + "\t" + task.getName() + "\t"
+                        + task.isTaskCurrent() + "\t" + task.getWorkedHoursPerTask());
+            }*/
+            System.out.println("---------------------------------------------------------");
         }
+
+
 
 
     }

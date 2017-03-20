@@ -8,6 +8,7 @@ import java.util.*;
 public class Freelancer {
 
     private List<Task> taskList = new ArrayList<Task>();
+    private Iterator<Task> iterator = taskList.iterator();
     private int workHoursPerWeek = 60;
     private int workedHours = 0;
     private int index = 0;
@@ -19,6 +20,8 @@ public class Freelancer {
     private Accountant accountant;
     private Set<Responsible> responsibility;
     private Set<Position> position;
+
+    /*Freelancer() {}*/ //TODO New constructor for freelancer
 
     Freelancer() {
         responsibility = new HashSet<Responsible>();
@@ -34,6 +37,19 @@ public class Freelancer {
         responsibility.add(getSelectedResponsibility(numberForPosition));
         position.add(getSelectedPosition(numberForPosition));
 
+    }
+
+    public void setCurrentTask() {
+        if (iterator.hasNext()) {
+            if (index == 0 || !(taskList.get(index).isTaskExecuted())) {
+                Task task = taskList.get(index); //TODO Refactoring
+                task.setCurrentTask(true);
+                task.incrementWorkedHoursPerTask();
+            }
+            if (taskList.get(index).isTaskExecuted()) {
+                index++;
+            }
+        }
     }
 
     private Position getSelectedPosition(int numberForPosition) {
@@ -86,6 +102,10 @@ public class Freelancer {
 
     public Set<Position> getPosition() {
         return position;
+    }
+
+    public void incrementWorkedHours() {
+        this.workedHours++;
     }
 
     public int getWorkHoursPerWeek() {

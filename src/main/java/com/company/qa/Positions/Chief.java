@@ -1,6 +1,7 @@
 package com.company.qa.Positions;
 
 import com.company.qa.Employee;
+import com.company.qa.Freelancer;
 import com.company.qa.Task.Task;
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +25,7 @@ public class Chief implements Position {
         addTasksToList();
     }
 
-    public void giveTask(List<Employee> employeeList) {
+    public void giveTask(List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
         amountOfGivenTasks = new Random().nextInt(2) + 1; //Amount of given tasks for every employee
         for (int i = 1; i <= amountOfGivenTasks; i++) {
             for (Employee employee : employeeList) {
