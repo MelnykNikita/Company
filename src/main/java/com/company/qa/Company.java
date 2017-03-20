@@ -33,7 +33,7 @@ public class Company {
 
     public void setCurrentTasksForEmployees() {
         for (Employee employee: employeeList) {
-            if (employee.getWorkHoursPerWeek() != employee.getWorkedHours()) {
+            if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.setCurrentTask();
             }
             else {
@@ -44,7 +44,7 @@ public class Company {
 
     public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
-            if (employee.getWorkHoursPerWeek() >= employee.getWorkedHours()) {
+            if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.incrementWorkedHours();
             }
 
