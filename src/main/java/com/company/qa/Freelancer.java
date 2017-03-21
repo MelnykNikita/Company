@@ -116,9 +116,23 @@ public class Freelancer {
     }
 
     public boolean isAvailable() {
-        if (getWorkHoursPerWeek() == getWorkedHours())
-            return false;
-        else
+        int sum = 0;
+        for (Task task : getTaskList()) {
+            sum += task.getHoursPerTask();
+        }
+        if (sum < workHoursPerWeek) {
             return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void addTask(Task task) {
+        for (Responsible responsibility: getResponsibilities()) {
+            if (task.isMatchableWithResponsibility(responsibility)) {
+                getTaskList().add(new Task(task.getName()));
+            }
+        }
     }
 }

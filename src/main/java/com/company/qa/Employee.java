@@ -175,18 +175,20 @@ public class Employee {
     }
 
     public boolean isAvailable() {
-        if (!getTaskList().isEmpty()) {
-            for (Task task: getTaskList()) {
-                if (task.isCurrent()) {
-                    return false;
-                }
-            }
+        int sum = 0;
+        for (Task task : getTaskList()) {
+            sum += task.getHoursPerTask();
         }
-        return true;
+        if (sum < workHoursPerWeek) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     public void addTask(Task task) {
-        for (Responsible responsibility : getResponsibilities()) {
+        for (Responsible responsibility: getResponsibilities()) {
             if (task.isMatchableWithResponsibility(responsibility)) {
                 getTaskList().add(new Task(task.getName()));
             }

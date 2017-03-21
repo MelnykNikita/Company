@@ -34,9 +34,12 @@ public class Chief implements Position {
                         employee.addTask(new Task(task.getName()));
                     }
                     else {
-                        System.out.println("Employee is not available");
+                        for (Freelancer freelancer: freelancerList) {
+                            if (freelancer.isAvailable()) {
+                                freelancer.addTask(new Task(task.getName()));
+                            }
+                        }
                     }
-
                 }
             }
         }
