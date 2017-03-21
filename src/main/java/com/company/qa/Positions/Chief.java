@@ -25,16 +25,18 @@ public class Chief implements Position {
         addTasksToList();
     }
 
-    public void giveTask(List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
+    public void giveTaskForEmployeesOrFreelancers(List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
         amountOfGivenTasks = new Random().nextInt(2) + 1; //Amount of given tasks for every employee
         for (int i = 1; i <= amountOfGivenTasks; i++) {
-            for (Employee employee : employeeList) {
-                for (Responsible responsible : employee.getResponsibilities()) {
-                    for (Task task : ChiefsTaskList) {
-                        if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())) {
-                            employee.getTaskList().add(new Task(responsible));
-                        }
+            for (Task task: ChiefsTaskList) {
+                for (Employee employee: employeeList) {
+                    if (employee.isAvailable()) {
+                        employee.addTask(new Task(task.getName()));
                     }
+                    else {
+                        System.out.println("Employee is not available");
+                    }
+
                 }
             }
         }

@@ -1,7 +1,6 @@
 package com.company.qa;
 
 import com.company.qa.Positions.*;
-import com.company.qa.Task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,7 @@ public class Company {
         }
 
         //TODO Delete all freelancers. Add one freelancer, if it needed.
-        this.amountOfFreelancers = new Random().nextInt(100) + 1;
+        this.amountOfFreelancers = new Random().nextInt(40) + 10;
         for (int i = 1; i <= amountOfFreelancers; i++) {
             freelancerList.add(new Freelancer());
         }
@@ -40,7 +39,7 @@ public class Company {
 
     public void chiefGivesTasksForEmployees() {
         //TODO give tasks for employees or freelancers
-        chief.giveTask(employeeList, freelancerList); //Chief gives tasks for employees
+        chief.giveTaskForEmployeesOrFreelancers(employeeList, freelancerList); //Chief gives tasks for employees
     }
 
     public void setCurrentTasksForEmployees() {
@@ -49,7 +48,7 @@ public class Company {
                 employee.setCurrentTask();
             }
             else {
-               giveTasksForFreelancers();             //TODO give tasks for freelancers
+               //giveTasksForFreelancers();             //TODO give tasks for freelancers
             }
         }
     }
@@ -60,44 +59,20 @@ public class Company {
                 employee.incrementWorkedHours();
             }
             else {
-                for (Freelancer freelancer: freelancerList) {
+                /*for (Freelancer freelancer: freelancerList) {
                     freelancer.incrementWorkedHours();
-                }
+                }*/
             }
 
         }
-    }
-
-    public void giveTasksForFreelancers() {     //TODO
-        for (Employee employee : employeeList) {
-            if (isEmployeeAvailable(employee)) {
-                for (Task task : employee.getTaskList()) {
-                    for (Freelancer freelancer : freelancerList) {
-                        for (Responsible responsible : freelancer.getResponsibilities()) {
-                            if (!(task.isTaskExecuted())
-                                    && task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())) {
-                                if (freelancer.getWorkedHours() != freelancer.getWorkHoursPerWeek()) {
-                                    freelancer.getTaskList().add(task);
-
-                                }
-                            }
-                        }
-                    }
-                    //task = null;
-                }
-            }
-        }
-    }
-
-    private boolean isEmployeeAvailable(Employee employee) { //TODO Transform to Employee.class
-        if (employee.getWorkHoursPerWeek() == employee.getWorkedHours())
-            return false;
-        else
-            return true;
     }
 
     public int getAmountOfEmployees(){
         return amountOfEmployees;
+    }
+
+    public int getAmountOfFreelancers() {
+        return amountOfFreelancers;
     }
 
     public List<Employee> getEmployeeList(){

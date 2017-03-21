@@ -21,9 +21,12 @@ public class Freelancer {
     private Set<Responsible> responsibility;
     private Set<Position> position;
 
-    /*Freelancer() {}*/ //TODO New constructor for freelancer
+    public Freelancer(Responsible responsible) { //TODO New constructor for freelancer
+        responsibility = new HashSet<Responsible>();
+        responsibility.add(responsible);
+    }
 
-    Freelancer() {
+    public Freelancer() {
         responsibility = new HashSet<Responsible>();
         position = new HashSet<Position>();
 
@@ -110,5 +113,12 @@ public class Freelancer {
 
     public int getWorkHoursPerWeek() {
         return workHoursPerWeek;
+    }
+
+    public boolean isAvailable() {
+        if (getWorkHoursPerWeek() == getWorkedHours())
+            return false;
+        else
+            return true;
     }
 }

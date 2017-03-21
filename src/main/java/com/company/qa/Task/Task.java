@@ -11,14 +11,19 @@ public class Task {
     private int workedHoursPerTask = 0;
     private boolean isDone;
 
-    public Task(Responsible responsible) {
+    /*public Task(Responsible responsible) {
         this.hoursPerTask = new Random().nextInt(2) + 1;
         this.name = responsible.getNameOfResponsibility();
-    }
+    }*/
 
     public Task(String name) {
+        this.hoursPerTask = new Random().nextInt(2) + 1;
         this.name = name;
     }
+
+    /*public Task(String name) {
+        this.name = name;
+    }*/
 
     public int getHoursPerTask() {
         return hoursPerTask;
@@ -28,7 +33,7 @@ public class Task {
         return name;
     }
 
-    public boolean isTaskCurrent() {
+    public boolean isCurrent() {
         return isCurrent;
     }
 
@@ -59,5 +64,14 @@ public class Task {
 
     public boolean isTaskDone() {
         return isDone;
+    }
+
+    public boolean isMatchableWithResponsibility(Responsible responsibility) {
+        if (getName().equalsIgnoreCase(responsibility.getNameOfResponsibility())) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

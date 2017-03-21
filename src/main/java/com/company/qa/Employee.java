@@ -173,4 +173,23 @@ public class Employee {
     public int getWorkedHoursAsTester() {
         return workedHoursAsTester;
     }
+
+    public boolean isAvailable() {
+        if (!getTaskList().isEmpty()) {
+            for (Task task: getTaskList()) {
+                if (task.isCurrent()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void addTask(Task task) {
+        for (Responsible responsibility : getResponsibilities()) {
+            if (task.isMatchableWithResponsibility(responsibility)) {
+                getTaskList().add(new Task(task.getName()));
+            }
+        }
+    }
 }
