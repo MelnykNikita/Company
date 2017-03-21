@@ -29,7 +29,7 @@ public class Company {
             employeeList.add(new Employee());
         }
 
-        //TODO Delete all freelancers. Add one freelancer, if it needed.
+        //TODO Delete all freelancers. Add one freelancer, if it needed. ???
         this.amountOfFreelancers = new Random().nextInt(40) + 10;
         for (int i = 1; i <= amountOfFreelancers; i++) {
             freelancerList.add(new Freelancer());
@@ -38,8 +38,7 @@ public class Company {
     }
 
     public void chiefGivesTasksForEmployees() {
-        //TODO give tasks for employees or freelancers
-        chief.giveTaskForEmployeesOrFreelancers(employeeList, freelancerList); //Chief gives tasks for employees
+        chief.giveTaskForEmployeesOrFreelancers(employeeList, freelancerList);
     }
 
     public void setCurrentTasksForEmployees() {
@@ -47,8 +46,12 @@ public class Company {
             if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.setCurrentTask();
             }
-            else {
-               //giveTasksForFreelancers();             //TODO give tasks for freelancers
+            else {                                  //TODO give tasks for freelancers
+               for (Freelancer freelancer: freelancerList) {
+                   if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
+                       freelancer.setCurrentTask(); // TODO
+                   }
+               }
             }
         }
     }
@@ -58,10 +61,8 @@ public class Company {
             if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.incrementWorkedHours();
             }
-            else {
-                /*for (Freelancer freelancer: freelancerList) {
-                    freelancer.incrementWorkedHours();
-                }*/
+            else {                                //TODO 
+
             }
 
         }

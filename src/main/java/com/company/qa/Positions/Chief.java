@@ -38,6 +38,9 @@ public class Chief implements Position {
                             if (freelancer.isAvailable()) {
                                 freelancer.addTask(new Task(task.getName()));
                             }
+                            else {
+                                System.out.println("no freelancers");
+                            }
                         }
                     }
                 }
