@@ -42,16 +42,24 @@ public class Freelancer {
 
     }
 
+    Freelancer(Accountant accountant) {
+        position = new HashSet<Position>();
+        responsibility = new HashSet<Responsible>();
+        position.add(accountant);
+        responsibility.add(accountant);
+        
+    }
+
     public void setCurrentTask() {
-        if (iterator.hasNext()) {
-            if (index == 0 || !(taskList.get(index).isTaskExecuted())) {
-                Task task = taskList.get(index); //TODO Refactoring
-                task.setCurrentTask(true);
-                task.incrementWorkedHoursPerTask();
-            }
-            if (taskList.get(index).isTaskExecuted()) {
-                index++;
-            }
+        if (iterator.hasNext() && index < taskList.size()) {
+           if (index == 0 || !(taskList.get(index).isTaskExecuted())) {
+               Task task = taskList.get(index); //TODO Refactoring
+               task.setCurrentTask(true);
+               task.incrementWorkedHoursPerTask();
+           }
+           if (taskList.get(index).isTaskExecuted()) {
+               index++;
+           }
         }
     }
 
