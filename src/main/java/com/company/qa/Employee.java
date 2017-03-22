@@ -120,7 +120,7 @@ public class Employee {
     }
 
     public void setCurrentTask() {
-        if (iterator.hasNext()) {
+        if (iterator.hasNext() && index < taskList.size()) {
             if (index == 0 || !(taskList.get(index).isTaskExecuted())){
                 Task task = taskList.get(index); //TODO Refactoring
                 task.setCurrentTask(true);

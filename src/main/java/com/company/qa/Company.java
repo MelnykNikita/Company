@@ -31,15 +31,15 @@ public class Company {
 
         //TODO Delete all freelancers. Add one freelancer, if it needed. ???
         //this.amountOfFreelancers = new Random().nextInt(50) + 10;
-        this.amountOfFreelancers = 5;
-        for (int i = 1; i <= amountOfFreelancers; i++) {
-            freelancerList.add(new Freelancer());
-        }
-
+        freelancerList.add(new Freelancer(new Accountant()));
+        freelancerList.add(new Freelancer(new Manager()));
+        freelancerList.add(new Freelancer(new Programmer()));
+        freelancerList.add(new Freelancer(new Designer()));
+        freelancerList.add(new Freelancer(new Tester()));
     }
 
     public void chiefGivesTasksForEmployees() {
-        chief.giveTaskForEmployeesOrFreelancers(employeeList, freelancerList);
+        freelancerList = chief.giveTaskForEmployeesOrFreelancers(employeeList, freelancerList);
     }
 
     public void setCurrentTasksForEmployees() {

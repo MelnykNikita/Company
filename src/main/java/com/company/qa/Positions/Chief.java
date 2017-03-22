@@ -3,10 +3,9 @@ package com.company.qa.Positions;
 import com.company.qa.Employee;
 import com.company.qa.Freelancer;
 import com.company.qa.Task.Task;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Chief implements Position {
 
@@ -19,30 +18,46 @@ public class Chief implements Position {
     private Task taskForDesigners = new Task("Draw layout");
     private Task taskForAccountant = new Task("Create report");
 
+    //private Iterator<Task> iterator = taskList.iterator();
+
 
     public Chief() {
         ChiefsTaskList = new HashSet<Task>();
         addTasksToList();
     }
 
-    public void giveTaskForEmployeesOrFreelancers(List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
-        amountOfGivenTasks = new Random().nextInt(2) + 1; //Amount of given tasks for every employee
-        for (int i = 1; i <= amountOfGivenTasks; i++) {
-            for (Task task: ChiefsTaskList) {
-                for (Employee employee: employeeList) {
+    public List<Freelancer> giveTaskForEmployeesOrFreelancers
+            (List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
+
+        Freelancer freelancer1 = null;
+        List<Freelancer> list = new CopyOnWriteArrayList<Freelancer>(freelancerList);
+        Iterator<Freelancer> iterator = list.iterator();
+
+        for (Task task : ChiefsTaskList) {
+            for (Employee employee : employeeList) {
+                amountOfGivenTasks = new Random().nextInt(2) + 1;
+                for (int i = 1; i <= amountOfGivenTasks; i++) {
                     if (employee.isAvailable()) {
                         employee.addTask(new Task(task.getName()));
                     }
-                    else {
-                        for (Freelancer freelancer: freelancerList) {
+                    else if (!employee.isAvailable()) {
+
+                        while (iterator.hasNext()) {
+                            Freelancer freelancer = iterator.next();
                             if (freelancer.isAvailable()) {
-                                freelancer.addTask(new Task(task.getName()));
+                                freelancer.addTask((new Task(task.getName())));
+                            }
+                            else {
+                                freelancer1 = new Freelancer(freelancer);
+                                //freelancer1.addTask(new Task(task.getName()));
+                                list.add(freelancer1);
                             }
                         }
                     }
                 }
             }
         }
+        return list;
     }
 
     public String getNameOfPosition() {

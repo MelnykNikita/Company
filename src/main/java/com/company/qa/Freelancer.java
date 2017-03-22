@@ -9,7 +9,7 @@ public class Freelancer {
 
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
-    private int workHoursPerWeek = 60;
+    private int workHoursPerWeek = 40;
     private int workedHours = 0;
     private int index = 0;
 
@@ -18,17 +18,24 @@ public class Freelancer {
     private Tester tester;
     private Manager manager;
     private Accountant accountant;
-    private Set<Responsible> responsibility;
-    private Set<Position> position;
+    private Set<Responsible> responsibilities;
+    private Set<Position> positions;
 
     public Freelancer(Responsible responsible) { //TODO New constructor for freelancer
-        responsibility = new HashSet<Responsible>();
-        responsibility.add(responsible);
+        responsibilities = new HashSet<Responsible>();
+        responsibilities.add(responsible);
+    }
+
+    public Freelancer(Freelancer freelancer) {
+        positions = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions.add(freelancer.getOnePosition());
+        responsibilities.add(freelancer.getOneResponsibility());
     }
 
     public Freelancer() {
-        responsibility = new HashSet<Responsible>();
-        position = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions = new HashSet<Position>();
 
         programmer = new Programmer();
         designer = new Designer();
@@ -37,17 +44,44 @@ public class Freelancer {
         accountant = new Accountant();
 
         int numberForPosition = new Random().nextInt(5) + 1;
-        responsibility.add(getSelectedResponsibility(numberForPosition));
-        position.add(getSelectedPosition(numberForPosition));
+        responsibilities.add(getSelectedResponsibility(numberForPosition));
+        positions.add(getSelectedPosition(numberForPosition));
 
     }
 
     Freelancer(Accountant accountant) {
-        position = new HashSet<Position>();
-        responsibility = new HashSet<Responsible>();
-        position.add(accountant);
-        responsibility.add(accountant);
-        
+        positions = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions.add(accountant);
+        responsibilities.add(accountant);
+    }
+
+    Freelancer(Tester tester) {
+        positions = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions.add(tester);
+        responsibilities.add(tester);
+    }
+
+    Freelancer(Programmer programmer) {
+        positions = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions.add(programmer);
+        responsibilities.add(programmer);
+    }
+
+    Freelancer(Designer designer) {
+        positions = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions.add(designer);
+        responsibilities.add(designer);
+    }
+
+    Freelancer(Manager manager) {
+        positions = new HashSet<Position>();
+        responsibilities = new HashSet<Responsible>();
+        positions.add(manager);
+        responsibilities.add(manager);
     }
 
     public void setCurrentTask() {
@@ -108,11 +142,11 @@ public class Freelancer {
     }
 
     public Set<Responsible> getResponsibilities() {
-        return responsibility;
+        return responsibilities;
     }
 
-    public Set<Position> getPosition() {
-        return position;
+    public Set<Position> getPositions() {
+        return positions;
     }
 
     public void incrementWorkedHours() {
@@ -142,5 +176,19 @@ public class Freelancer {
                 getTaskList().add(new Task(task.getName()));
             }
         }
+    }
+
+    public Responsible getOneResponsibility() {
+        for (Responsible responsibility: responsibilities) {
+            return responsibility;
+        }
+        return null;
+    }
+
+    public Position getOnePosition() {
+        for (Position position: positions) {
+            return position;
+        }
+        return null;
     }
 }
