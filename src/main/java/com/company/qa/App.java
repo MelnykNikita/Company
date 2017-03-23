@@ -38,7 +38,7 @@ public class App
         }
 
         System.out.println("Freelancers.............................");
-        System.out.println("Amount Of Freelancers: " + company.getAmountOfFreelancers());
+        System.out.println("Amount Of Freelancers: " + company.getFreelancerList().size());
 
         for (Freelancer freelancer: company.getFreelancerList()) {
             System.out.println(freelancer + ":  " + freelancer.getWorkHoursPerWeek() + " hrs/week \t"

@@ -9,7 +9,7 @@ public class Freelancer {
 
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
-    private int workHoursPerWeek = 40;
+    private int workHoursPerWeek = 30;
     private int workedHours = 0;
     private int index = 0;
 
@@ -171,6 +171,15 @@ public class Freelancer {
                 getTaskList().add(new Task(task.getName()));
             }
         }
+    }
+
+    public boolean isAnyTaskExecutable() {
+        for (Task task: taskList) {
+            if (!task.isTaskExecuted()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Responsible getOneResponsibility() {

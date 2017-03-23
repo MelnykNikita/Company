@@ -48,14 +48,12 @@ public class Company {
             if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.setCurrentTask();
             }
-            else {
-               for (Freelancer freelancer: freelancerList) {
-                   if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
-                       freelancer.setCurrentTask();
-                   }
-               }
-            }
         }
+       for (Freelancer freelancer: freelancerList) {
+           if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
+               freelancer.setCurrentTask();
+           }
+       }
     }
 
     public void incrementWorkedHours() {
@@ -63,17 +61,10 @@ public class Company {
             if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.incrementWorkedHours();
             }
-            else {                                //TODO: increment only when in process
-                for (Freelancer freelancer: freelancerList) {
-                    if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
-                        for (Task task: freelancer.getTaskList() ) {
-                            if (task.isTaskExecuted()) {
-                                freelancer.incrementWorkedHours();
-                            }
-                        }
-
-                    }
-                }
+        }
+        for (Freelancer freelancer: freelancerList) {   //TODO: increment freelancers workedHours
+            for (Task task: freelancer.getTaskList()) {
+                task.getWorkedHoursPerTask();
             }
         }
     }

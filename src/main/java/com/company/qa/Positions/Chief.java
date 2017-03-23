@@ -18,6 +18,8 @@ public class Chief implements Position {
     private Task taskForDesigners = new Task("Draw layout");
     private Task taskForAccountant = new Task("Create report");
 
+    private List<Task> taskListForFreelancers = new ArrayList<Task>();
+
     //private Iterator<Task> iterator = taskList.iterator();
 
 
@@ -30,7 +32,9 @@ public class Chief implements Position {
             (List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
 
         List<Freelancer> list = new CopyOnWriteArrayList<Freelancer>(freelancerList);
-        Iterator<Freelancer> iterator = list.iterator();
+        Iterator<Freelancer> freelancerIterator = list.iterator();
+
+
 
         for (Task task : ChiefsTaskList) {
             for (Employee employee : employeeList) {
@@ -39,23 +43,35 @@ public class Chief implements Position {
                     if (employee.isAvailable()) {
                         employee.addTask(new Task(task.getName()));
                     }
-                    else if (!employee.isAvailable()) {
-
-                        while (iterator.hasNext()) {
-                            Freelancer freelancer = iterator.next();
-                            if (freelancer.isAvailable()) {
-                                freelancer.addTask((new Task(task.getName())));
-                            }
-                            else {
-                                Freelancer freelancer1 = new Freelancer(freelancer);
-                                freelancer1.addTask(new Task(task.getName()));
-                                list.add(freelancer1);
-                            }
-                        }
+                    else {
+                        taskListForFreelancers.add(new Task(task.getName()));
                     }
                 }
             }
         }
+
+        List<Task> taskListForFrees = new CopyOnWriteArrayList<Task>(taskListForFreelancers);
+        Iterator<Task> taskIterator = taskListForFreelancers.iterator();
+
+        while (taskIterator.hasNext()) {
+            Task task = taskIterator.next();
+
+            while (freelancerIterator.hasNext()) {
+                Freelancer freelancer = freelancerIterator.next();
+
+                if (freelancer.isAvailable()) {
+                    freelancer.addTask((new Task(task.getName())));
+                    taskListForFrees.remove(task);
+                } else {
+                    Freelancer freelancer1 = new Freelancer(freelancer);
+                    freelancer1.addTask(new Task(task.getName()));
+                    list.add(freelancer1);
+                    taskListForFrees.remove(task);
+                }
+            }
+        }
+        taskListForFreelancers.clear();
+        taskListForFrees.clear();
         return list;
     }
 
@@ -69,9 +85,9 @@ public class Chief implements Position {
 
     private void addTasksToList() {
         ChiefsTaskList.add(taskForTesters);
-        ChiefsTaskList.add(taskForProgrammers);
         ChiefsTaskList.add(taskForManagers);
         ChiefsTaskList.add(taskForDesigners);
         ChiefsTaskList.add(taskForAccountant);
+        ChiefsTaskList.add(taskForProgrammers);
     }
 }
