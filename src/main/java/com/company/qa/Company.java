@@ -1,6 +1,7 @@
 package com.company.qa;
 
 import com.company.qa.Positions.*;
+import com.company.qa.Task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +48,7 @@ public class Company {
             if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.setCurrentTask();
             }
-            else {                                  //TODO give tasks for freelancers
+            else {
                for (Freelancer freelancer: freelancerList) {
                    if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
                        freelancer.setCurrentTask();
@@ -62,14 +63,18 @@ public class Company {
             if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
                 employee.incrementWorkedHours();
             }
-            else {                                //TODO
+            else {                                //TODO: increment only when in process
                 for (Freelancer freelancer: freelancerList) {
                     if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
-                        freelancer.incrementWorkedHours();
+                        for (Task task: freelancer.getTaskList() ) {
+                            if (task.isTaskExecuted()) {
+                                freelancer.incrementWorkedHours();
+                            }
+                        }
+
                     }
                 }
             }
-
         }
     }
 

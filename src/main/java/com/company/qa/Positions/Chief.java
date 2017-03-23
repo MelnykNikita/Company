@@ -29,7 +29,6 @@ public class Chief implements Position {
     public List<Freelancer> giveTaskForEmployeesOrFreelancers
             (List<Employee> employeeList, List<Freelancer> freelancerList) { //TODO add freelancers
 
-        Freelancer freelancer1 = null;
         List<Freelancer> list = new CopyOnWriteArrayList<Freelancer>(freelancerList);
         Iterator<Freelancer> iterator = list.iterator();
 
@@ -48,8 +47,8 @@ public class Chief implements Position {
                                 freelancer.addTask((new Task(task.getName())));
                             }
                             else {
-                                freelancer1 = new Freelancer(freelancer);
-                                //freelancer1.addTask(new Task(task.getName()));
+                                Freelancer freelancer1 = new Freelancer(freelancer);
+                                freelancer1.addTask(new Task(task.getName()));
                                 list.add(freelancer1);
                             }
                         }

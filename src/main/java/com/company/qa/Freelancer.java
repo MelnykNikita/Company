@@ -21,11 +21,6 @@ public class Freelancer {
     private Set<Responsible> responsibilities;
     private Set<Position> positions;
 
-    public Freelancer(Responsible responsible) { //TODO New constructor for freelancer
-        responsibilities = new HashSet<Responsible>();
-        responsibilities.add(responsible);
-    }
-
     public Freelancer(Freelancer freelancer) {
         positions = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
