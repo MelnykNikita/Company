@@ -45,12 +45,12 @@ public class Company {
 
     public void setCurrentTasksForEmployees() {
         for (Employee employee: employeeList) {
-            if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
+            if (employee.getWorkHoursPerMonth() > employee.getWorkedHours()) {
                 employee.setCurrentTask();
             }
         }
        for (Freelancer freelancer: freelancerList) {
-           if (freelancer.getWorkHoursPerWeek() > freelancer.getWorkedHours()) {
+           if (freelancer.getWorkHoursPerMonth() > freelancer.getWorkedHours()) {
                freelancer.setCurrentTask();
            }
        }
@@ -58,13 +58,8 @@ public class Company {
 
     public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
-            if (employee.getWorkHoursPerWeek() > employee.getWorkedHours()) {
+            if (employee.getWorkHoursPerMonth() > employee.getWorkedHours()) {
                 employee.incrementWorkedHours();
-            }
-        }
-        for (Freelancer freelancer: freelancerList) {   //TODO: increment freelancers workedHours
-            for (Task task: freelancer.getTaskList()) {
-                task.getWorkedHoursPerTask();
             }
         }
     }

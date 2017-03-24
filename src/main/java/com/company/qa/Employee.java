@@ -7,6 +7,7 @@ import java.util.*;
 public class Employee {
 
     private int workHoursPerWeek;
+    private int workHoursPerMonth;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
@@ -36,6 +37,7 @@ public class Employee {
         manager = new Manager();
 
         this.workHoursPerWeek = new Random().nextInt(6) + 35; //Setting of MAX work-hours per week
+        this.workHoursPerMonth = 4 * workHoursPerWeek;
 
         this.amountOfPositions = new Random().nextInt(2) + 1; //Addition of positions for employee
         for (int i = 1; i <= amountOfPositions; i++) {
@@ -45,13 +47,12 @@ public class Employee {
         }
     }
 
-
-
     Employee(Chief chief) {
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
         positionList.add(chief);
         this.workHoursPerWeek = 40;
+        this.workHoursPerMonth = 4 * workHoursPerWeek;
     }
 
     Employee(Accountant accountant) {
@@ -60,6 +61,7 @@ public class Employee {
         positionList.add(accountant);
         responsibilities.add(accountant);
         this.workHoursPerWeek = 40;
+        this.workHoursPerMonth = 4 * workHoursPerWeek;
     }
 
     private Position getSelectedPosition(int numberForPosition) {
@@ -179,7 +181,7 @@ public class Employee {
         for (Task task : getTaskList()) {
             sum += task.getHoursPerTask();
         }
-        if (sum < workHoursPerWeek) {
+        if (sum < workHoursPerMonth) {
             return true;
         }
         else {
@@ -193,5 +195,9 @@ public class Employee {
                 getTaskList().add(new Task(task.getName()));
             }
         }
+    }
+
+    public int getWorkHoursPerMonth() {
+        return workHoursPerMonth;
     }
 }

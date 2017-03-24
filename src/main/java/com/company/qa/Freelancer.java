@@ -9,7 +9,8 @@ public class Freelancer {
 
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
-    private int workHoursPerWeek = 30;
+    private int workHoursPerWeek = 15;
+    private int workHoursPerMonth = 4 * workHoursPerWeek;
     private int workedHours = 0;
     private int index = 0;
 
@@ -85,11 +86,76 @@ public class Freelancer {
                Task task = taskList.get(index); //TODO Refactoring
                task.setCurrentTask(true);
                task.incrementWorkedHoursPerTask();
+               incrementWorkedHours();
            }
            if (taskList.get(index).isTaskExecuted()) {
                index++;
            }
         }
+    }
+
+    public void incrementWorkedHours() {
+        this.workedHours++;
+    }
+
+    public boolean isAvailable() {
+        /*int sum = 0;
+        for (Task task : getTaskList()) {
+            sum += task.getHoursPerTask();
+        }*/
+        if (taskList.isEmpty()) {       //TODO Task???
+            return true;
+        }
+        if (!taskList.isEmpty() && getTaskList().get(0).isTaskExecuted()) {       //TODO Task???
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public List<Task> getTaskList() {
+        return taskList;
+    }
+
+    public int getWorkedHours() {
+        return workedHours;
+    }
+
+    public Set<Responsible> getResponsibilities() {
+        return responsibilities;
+    }
+
+    public Set<Position> getPositions() {
+        return positions;
+    }
+
+
+    public int getWorkHoursPerWeek() {
+        return workHoursPerWeek;
+    }
+
+
+    public void addTask(Task task) {
+        for (Responsible responsibility: getResponsibilities()) {
+            if (task.isMatchableWithResponsibility(responsibility)) {
+                getTaskList().add(new Task(task.getName()));
+            }
+        }
+    }
+
+    public Responsible getOneResponsibility() {
+        for (Responsible responsibility: responsibilities) {
+            return responsibility;
+        }
+        return null;
+    }
+
+    public Position getOnePosition() {
+        for (Position position: positions) {
+            return position;
+        }
+        return null;
     }
 
     private Position getSelectedPosition(int numberForPosition) {
@@ -128,71 +194,7 @@ public class Freelancer {
         }
     }
 
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-
-    public int getWorkedHours() {
-        return workedHours;
-    }
-
-    public Set<Responsible> getResponsibilities() {
-        return responsibilities;
-    }
-
-    public Set<Position> getPositions() {
-        return positions;
-    }
-
-    public void incrementWorkedHours() {
-        this.workedHours++;
-    }
-
-    public int getWorkHoursPerWeek() {
-        return workHoursPerWeek;
-    }
-
-    public boolean isAvailable() {
-        int sum = 0;
-        for (Task task : getTaskList()) {
-            sum += task.getHoursPerTask();
-        }
-        if (sum < workHoursPerWeek) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    public void addTask(Task task) {
-        for (Responsible responsibility: getResponsibilities()) {
-            if (task.isMatchableWithResponsibility(responsibility)) {
-                getTaskList().add(new Task(task.getName()));
-            }
-        }
-    }
-
-    public boolean isAnyTaskExecutable() {
-        for (Task task: taskList) {
-            if (!task.isTaskExecuted()) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Responsible getOneResponsibility() {
-        for (Responsible responsibility: responsibilities) {
-            return responsibility;
-        }
-        return null;
-    }
-
-    public Position getOnePosition() {
-        for (Position position: positions) {
-            return position;
-        }
-        return null;
+    public int getWorkHoursPerMonth() {
+        return workHoursPerMonth;
     }
 }

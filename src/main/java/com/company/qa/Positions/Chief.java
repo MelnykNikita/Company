@@ -20,9 +20,6 @@ public class Chief implements Position {
 
     private List<Task> taskListForFreelancers = new ArrayList<Task>();
 
-    //private Iterator<Task> iterator = taskList.iterator();
-
-
     public Chief() {
         ChiefsTaskList = new HashSet<Task>();
         addTasksToList();
@@ -33,8 +30,6 @@ public class Chief implements Position {
 
         List<Freelancer> list = new CopyOnWriteArrayList<Freelancer>(freelancerList);
         Iterator<Freelancer> freelancerIterator = list.iterator();
-
-
 
         for (Task task : ChiefsTaskList) {
             for (Employee employee : employeeList) {
@@ -70,8 +65,8 @@ public class Chief implements Position {
                 }
             }
         }
-        taskListForFreelancers.clear();
-        taskListForFrees.clear();
+
+        taskListForFreelancers = taskListForFrees;
         return list;
     }
 
