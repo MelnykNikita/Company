@@ -16,6 +16,7 @@ public class App
             }
             company.payWeekSalary();
         }
+        company.makeMonthlyReport();
 
 
         System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());

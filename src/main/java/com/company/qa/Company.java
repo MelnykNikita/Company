@@ -2,6 +2,7 @@ package com.company.qa;
 
 import com.company.qa.Positions.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,6 +46,14 @@ public class Company {
 
     public void payWeekSalary() {
         accountant.payWeekSalary(employeeList, freelancerList);
+    }
+
+    public void makeMonthlyReport() {
+        try {
+            accountant.makeMonthlyReport(employeeList, freelancerList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setCurrentTasksForEmployees() {

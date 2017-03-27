@@ -1,0 +1,28 @@
+Amount Of Employees: 23
+com.company.qa.Employee@5451c3a8:  160 MAX hrs/month 	40 MAX hrs/week 	160 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	4000 $	Chief	
+com.company.qa.Employee@2626b418:  160 MAX hrs/month 	40 MAX hrs/week 	160 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1200 $	Accountant	
+com.company.qa.Employee@5a07e868:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	144 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1008 $	Tester	
+com.company.qa.Employee@76ed5528:  160 MAX hrs/month 	40 MAX hrs/week 	160 ACTUAL hrs/work 	160 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	960 $	Designer	
+com.company.qa.Employee@2c7b84de:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	144 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1152 $	Programmer	
+com.company.qa.Employee@3fee733d:  160 MAX hrs/month 	40 MAX hrs/week 	160 ACTUAL hrs/work 	160 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1037 $	Tester	
+Designer	
+com.company.qa.Employee@5acf9800:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	144 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	864 $	Designer	
+com.company.qa.Employee@4617c264:  148 MAX hrs/month 	37 MAX hrs/week 	148 ACTUAL hrs/work 	73 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2911 $	Manager	
+Tester	
+com.company.qa.Employee@36baf30c:  140 MAX hrs/month 	35 MAX hrs/week 	140 ACTUAL hrs/work 	140 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	840 $	Designer	
+com.company.qa.Employee@7a81197d:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	144 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1152 $	Programmer	
+com.company.qa.Employee@5ca881b5:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	144 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	864 $	Designer	
+com.company.qa.Employee@24d46ca6:  152 MAX hrs/month 	38 MAX hrs/week 	152 ACTUAL hrs/work 	152 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	912 $	Designer	
+com.company.qa.Employee@4517d9a3:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2400 $	Manager	
+com.company.qa.Employee@372f7a8d:  152 MAX hrs/month 	38 MAX hrs/week 	152 ACTUAL hrs/work 	73 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2911 $	Manager	
+Tester	
+com.company.qa.Employee@2f92e0f4:  148 MAX hrs/month 	37 MAX hrs/week 	148 ACTUAL hrs/work 	148 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	888 $	Designer	
+com.company.qa.Employee@28a418fc:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	144 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	864 $	Designer	
+com.company.qa.Employee@5305068a:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2400 $	Manager	
+com.company.qa.Employee@1f32e575:  160 MAX hrs/month 	40 MAX hrs/week 	160 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2400 $	Manager	
+com.company.qa.Employee@279f2327:  156 MAX hrs/month 	39 MAX hrs/week 	156 ACTUAL hrs/work 	156 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1248 $	Programmer	
+com.company.qa.Employee@2ff4acd0:  156 MAX hrs/month 	39 MAX hrs/week 	156 ACTUAL hrs/work 	156 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1173 $	Programmer	
+Tester	
+com.company.qa.Employee@54bedef2:  156 MAX hrs/month 	39 MAX hrs/week 	156 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2400 $	Manager	
+com.company.qa.Employee@5caf905d:  160 MAX hrs/month 	40 MAX hrs/week 	160 ACTUAL hrs/work 	160 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	1120 $	Tester	
+com.company.qa.Employee@27716f4:  144 MAX hrs/month 	36 MAX hrs/week 	144 ACTUAL hrs/work 	0 hrs/IT 	0 hrs/prog 	0 hrs/des 	0 hrs/test 	2400 $	Manager	
