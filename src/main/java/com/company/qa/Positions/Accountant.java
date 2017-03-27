@@ -23,5 +23,9 @@ public class Accountant implements Position, Responsible {
         for (Employee employee: employeeList) {
             employee.setWeekSalary();
         }
+
+        for (Freelancer freelancer: freelancerList) {
+            freelancer.setWeekSalary();
+        }
     }
 }

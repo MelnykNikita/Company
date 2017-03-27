@@ -9,16 +9,14 @@ public class Freelancer {
 
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
-    private int workHoursPerWeek = 15;
-    private int workHoursPerMonth = 4 * workHoursPerWeek;
+    private int maxWorkHoursPerWeek = 15;
+    private int actualWorkHoursPerWeek = 0;
+    private int workHoursPerMonth = 4 * maxWorkHoursPerWeek;
     private int workedHours = 0;
     private int index = 0;
+    private int salary = 0;
+    private int salaryRate;
 
-    private Programmer programmer;
-    private Designer designer;
-    private Tester tester;
-    private Manager manager;
-    private Accountant accountant;
     private Set<Responsible> responsibilities;
     private Set<Position> positions;
 
@@ -27,22 +25,7 @@ public class Freelancer {
         responsibilities = new HashSet<Responsible>();
         positions.add(freelancer.getOnePosition());
         responsibilities.add(freelancer.getOneResponsibility());
-    }
-
-    public Freelancer() {
-        responsibilities = new HashSet<Responsible>();
-        positions = new HashSet<Position>();
-
-        programmer = new Programmer();
-        designer = new Designer();
-        tester = new Tester();
-        manager = new Manager();
-        accountant = new Accountant();
-
-        int numberForPosition = new Random().nextInt(5) + 1;
-        responsibilities.add(getSelectedResponsibility(numberForPosition));
-        positions.add(getSelectedPosition(numberForPosition));
-
+        salaryRate = freelancer.getSalaryRate();
     }
 
     Freelancer(Accountant accountant) {
@@ -50,6 +33,7 @@ public class Freelancer {
         responsibilities = new HashSet<Responsible>();
         positions.add(accountant);
         responsibilities.add(accountant);
+        salaryRate = 5;
     }
 
     Freelancer(Tester tester) {
@@ -57,6 +41,7 @@ public class Freelancer {
         responsibilities = new HashSet<Responsible>();
         positions.add(tester);
         responsibilities.add(tester);
+        salaryRate = 6;
     }
 
     Freelancer(Programmer programmer) {
@@ -64,6 +49,7 @@ public class Freelancer {
         responsibilities = new HashSet<Responsible>();
         positions.add(programmer);
         responsibilities.add(programmer);
+        salaryRate = 10;
     }
 
     Freelancer(Designer designer) {
@@ -71,6 +57,7 @@ public class Freelancer {
         responsibilities = new HashSet<Responsible>();
         positions.add(designer);
         responsibilities.add(designer);
+        salaryRate = 7;
     }
 
     Freelancer(Manager manager) {
@@ -78,6 +65,7 @@ public class Freelancer {
         responsibilities = new HashSet<Responsible>();
         positions.add(manager);
         responsibilities.add(manager);
+        salaryRate = 8;
     }
 
     public void setCurrentTask() {
@@ -87,6 +75,7 @@ public class Freelancer {
                task.setCurrentTask(true);
                task.incrementWorkedHoursPerTask();
                incrementWorkedHours();
+               this.actualWorkHoursPerWeek++;
            }
            if (taskList.get(index).isTaskExecuted()) {
                index++;
@@ -126,11 +115,9 @@ public class Freelancer {
         return positions;
     }
 
-
-    public int getWorkHoursPerWeek() {
-        return workHoursPerWeek;
+    public int getMaxWorkHoursPerWeek() {
+        return maxWorkHoursPerWeek;
     }
-
 
     public void addTask(Task task) {
         for (Responsible responsibility: getResponsibilities()) {
@@ -154,43 +141,20 @@ public class Freelancer {
         return null;
     }
 
-    private Position getSelectedPosition(int numberForPosition) {
-
-        switch (numberForPosition) {
-            case 1:
-                return programmer;
-            case 2:
-                return designer;
-            case 3:
-                return tester;
-            case 4:
-                return manager;
-            case 5:
-                return accountant;
-            default:
-                return null;
-        }
-    }
-
-    private Responsible getSelectedResponsibility(int numberForPosition) {
-
-        switch (numberForPosition) {
-            case 1:
-                return programmer;
-            case 2:
-                return designer;
-            case 3:
-                return tester;
-            case 4:
-                return manager;
-            case 5:
-                return accountant;
-            default:
-                return null;
-        }
-    }
-
     public int getWorkHoursPerMonth() {
         return workHoursPerMonth;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public int getSalaryRate() {
+        return salaryRate;
+    }
+
+    public void setWeekSalary() {
+        this.salary += salaryRate * actualWorkHoursPerWeek;
+        this.actualWorkHoursPerWeek = 0;
     }
 }

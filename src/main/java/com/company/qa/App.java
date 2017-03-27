@@ -9,7 +9,7 @@ public class App
 
         Company company = new Company();
         for (int week = 1; week < 5; week++) {
-            for (int i = 1; i < 41; i++) {
+            for (int i = 0; i < 40; i++) {
                 company.chiefGivesTasksForEmployees();
                 company.setCurrentTasksForEmployees();
                 company.incrementWorkedHours();
@@ -25,9 +25,9 @@ public class App
                     + employee.getMaxWorkHoursPerWeek() + " MAX hrs/week \t"
                     + employee.getWorkedHours() + " ACTUAL hrs/work \t"
                     + employee.getWorkedHoursIT() + " hrs/IT \t"
-                    + employee.getWorkedHoursAsProgrammer() + " hrs/programmer \t"
-                    + employee.getWorkedHoursAsDesigner() + " hrs/designer \t"
-                    + employee.getWorkedHoursAsTester() + " hrs/tester \t"
+                    + employee.getWorkedHoursAsProgrammer() + " hrs/prog \t"
+                    + employee.getWorkedHoursAsDesigner() + " hrs/des \t"
+                    + employee.getWorkedHoursAsTester() + " hrs/test \t"
                     + employee.getSalary() + " $\t");
             for (Position position: employee.getPositionList()) {
                 System.out.println(position.getNameOfPosition() + "\t");
@@ -46,8 +46,9 @@ public class App
 
         for (Freelancer freelancer: company.getFreelancerList()) {
             System.out.println(freelancer + ":  " + freelancer.getWorkHoursPerMonth() + " hrs/month \t"
-                    + freelancer.getWorkHoursPerWeek() + " hrs/week \t"
-                    + freelancer.getWorkedHours() + " hrs/work \t");
+                    + freelancer.getMaxWorkHoursPerWeek() + " hrs/week \t"
+                    + freelancer.getWorkedHours() + " hrs/work \t"
+                    + freelancer.getSalary() + " $\t");
             for (Position position: freelancer.getPositions()) {
                 System.out.println(position.getNameOfPosition() + "\t");
             }

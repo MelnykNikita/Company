@@ -212,16 +212,26 @@ public class Employee {
     }
 
     public void setWeekSalary() {
-        for (Position position: positionList) {   // TODO branches for programmer, designer, tester
-            if (position instanceof IT) {
-                this.salary += position.getSalaryRate() * actualWorkHoursPerWeek;
+        for (Position position: positionList) {
+            if (position instanceof Programmer) {
+                this.salary += position.getSalaryRate() * workedHoursAsProgrammer;
             }
-            else {
+            if (position instanceof Designer) {
+                this.salary += position.getSalaryRate() * workedHoursAsDesigner;
+            }
+            if (position instanceof Tester) {
+                this.salary += position.getSalaryRate() * workedHoursAsTester;
+            }
+            else if (position instanceof Chief
+                    || position instanceof Accountant
+                    || position instanceof Manager) {
                 this.salary += position.getSalaryRate() / 4;
             }
         }
-        //this.actualWorkHoursPerMonth += actualWorkHoursPerWeek;
-        this.actualWorkHoursPerWeek = 0;
+
+        this.workedHoursAsProgrammer = 0;
+        this.workedHoursAsDesigner = 0;
+        this.workedHoursAsTester = 0;
     }
 
     public int getSalary() {
