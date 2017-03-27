@@ -1,5 +1,10 @@
 package com.company.qa.Positions;
 
+import com.company.qa.Employee;
+import com.company.qa.Freelancer;
+
+import java.util.List;
+
 public class Accountant implements Position, Responsible {
 
     public String getNameOfPosition() {
@@ -12,5 +17,11 @@ public class Accountant implements Position, Responsible {
 
     public String getNameOfResponsibility() {
         return "Create report";
+    }
+
+    public void payWeekSalary(List<Employee> employeeList, List<Freelancer> freelancerList) {
+        for (Employee employee: employeeList) {
+            employee.setWeekSalary();
+        }
     }
 }

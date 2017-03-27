@@ -6,8 +6,10 @@ import java.util.*;
 
 public class Employee {
 
-    private int workHoursPerWeek;
-    private int workHoursPerMonth;
+    private int maxWorkHoursPerWeek;
+    private int actualWorkHoursPerWeek = 0;
+    private int maxWorkHoursPerMonth;
+    private int actualWorkHoursPerMonth = 0;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
@@ -17,6 +19,7 @@ public class Employee {
     private int workedHoursAsProgrammer = 0;
     private int workedHoursAsDesigner = 0;
     private int workedHoursAsTester = 0;
+    private int salary = 0;
 
     private Set<Position> positionList;
     private Programmer programmer;
@@ -36,8 +39,8 @@ public class Employee {
         tester = new Tester();
         manager = new Manager();
 
-        this.workHoursPerWeek = new Random().nextInt(6) + 35; //Setting of MAX work-hours per week
-        this.workHoursPerMonth = 4 * workHoursPerWeek;
+        this.maxWorkHoursPerWeek = new Random().nextInt(6) + 35; //Setting of MAX work-hours per week
+        this.maxWorkHoursPerMonth = 4 * maxWorkHoursPerWeek;
 
         this.amountOfPositions = new Random().nextInt(2) + 1; //Addition of positions for employee
         for (int i = 1; i <= amountOfPositions; i++) {
@@ -51,8 +54,8 @@ public class Employee {
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
         positionList.add(chief);
-        this.workHoursPerWeek = 40;
-        this.workHoursPerMonth = 4 * workHoursPerWeek;
+        this.maxWorkHoursPerWeek = 40;
+        this.maxWorkHoursPerMonth = 4 * maxWorkHoursPerWeek;
     }
 
     Employee(Accountant accountant) {
@@ -60,8 +63,8 @@ public class Employee {
         responsibilities = new HashSet<Responsible>();
         positionList.add(accountant);
         responsibilities.add(accountant);
-        this.workHoursPerWeek = 40;
-        this.workHoursPerMonth = 4 * workHoursPerWeek;
+        this.maxWorkHoursPerWeek = 40;
+        this.maxWorkHoursPerMonth = 4 * maxWorkHoursPerWeek;
     }
 
     private Position getSelectedPosition(int numberForPosition) {
@@ -122,13 +125,16 @@ public class Employee {
     }
 
     public void setCurrentTask() {
+
         if (iterator.hasNext() && index < taskList.size()) {
+
             if (index == 0 || !(taskList.get(index).isTaskExecuted())){
                 Task task = taskList.get(index); //TODO Refactoring
                 task.setCurrentTask(true);
                 task.incrementWorkedHoursPerTask();
                 incrementWorkedHoursIT(task);
                 incrementWorkedHoursByITPosition(task);
+                incrementWorkHoursPerWeek();
             }
             if (taskList.get(index).isTaskExecuted()) {
                 index++;
@@ -136,8 +142,8 @@ public class Employee {
         }
     }
 
-    public int getWorkHoursPerWeek() {
-        return workHoursPerWeek;
+    public int getMaxWorkHoursPerWeek() {
+        return maxWorkHoursPerWeek;
     }
 
     public Set<Position> getPositionList(){
@@ -158,6 +164,10 @@ public class Employee {
 
     public void incrementWorkedHours() {
         this.workedHours++;
+    }
+
+    public void incrementWorkHoursPerWeek() {
+        this.actualWorkHoursPerWeek++;
     }
 
     public int getWorkedHoursIT() {
@@ -181,7 +191,7 @@ public class Employee {
         for (Task task : getTaskList()) {
             sum += task.getHoursPerTask();
         }
-        if (sum < workHoursPerMonth) {
+        if (sum < maxWorkHoursPerMonth) {
             return true;
         }
         else {
@@ -197,7 +207,24 @@ public class Employee {
         }
     }
 
-    public int getWorkHoursPerMonth() {
-        return workHoursPerMonth;
+    public int getMaxWorkHoursPerMonth() {
+        return maxWorkHoursPerMonth;
+    }
+
+    public void setWeekSalary() {
+        for (Position position: positionList) {   // TODO branches for programmer, designer, tester
+            if (position instanceof IT) {
+                this.salary += position.getSalaryRate() * actualWorkHoursPerWeek;
+            }
+            else {
+                this.salary += position.getSalaryRate() / 4;
+            }
+        }
+        //this.actualWorkHoursPerMonth += actualWorkHoursPerWeek;
+        this.actualWorkHoursPerWeek = 0;
+    }
+
+    public int getSalary() {
+        return salary;
     }
 }

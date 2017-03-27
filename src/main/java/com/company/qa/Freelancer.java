@@ -99,14 +99,10 @@ public class Freelancer {
     }
 
     public boolean isAvailable() {
-        /*int sum = 0;
-        for (Task task : getTaskList()) {
-            sum += task.getHoursPerTask();
-        }*/
-        if (taskList.isEmpty()) {       //TODO Task???
+        if (taskList.isEmpty()) {
             return true;
         }
-        if (!taskList.isEmpty() && getTaskList().get(0).isTaskExecuted()) {       //TODO Task???
+        if (!taskList.isEmpty() && getTaskList().get(0).isTaskExecuted()) {
             return true;
         }
         else {

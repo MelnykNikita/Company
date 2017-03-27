@@ -11,7 +11,7 @@ public class Manager implements Position, Responsible {
     }
 
     public int getSalaryRate() {
-        return 1800;
+        return 2400;
     }
 
     public String getNameOfResponsibility() {

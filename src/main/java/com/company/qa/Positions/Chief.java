@@ -75,7 +75,7 @@ public class Chief implements Position {
     }
 
     public int getSalaryRate() {
-        return 2000;
+        return 4000;
     }
 
     private void addTasksToList() {

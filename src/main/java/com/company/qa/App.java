@@ -14,23 +14,23 @@ public class App
                 company.setCurrentTasksForEmployees();
                 company.incrementWorkedHours();
             }
+            company.payWeekSalary();
         }
-
-
 
 
         System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
 
         for (Employee employee: company.getEmployeeList()) {
-            System.out.print(employee + ":  " + employee.getWorkHoursPerMonth() + " hrs/month \t"
-                    + employee.getWorkHoursPerWeek() + " hrs/week \t"
-                    + employee.getWorkedHours() + " hrs/work \t"
+            System.out.print(employee + ":  " + employee.getMaxWorkHoursPerMonth() + " MAX hrs/month \t"
+                    + employee.getMaxWorkHoursPerWeek() + " MAX hrs/week \t"
+                    + employee.getWorkedHours() + " ACTUAL hrs/work \t"
                     + employee.getWorkedHoursIT() + " hrs/IT \t"
                     + employee.getWorkedHoursAsProgrammer() + " hrs/programmer \t"
                     + employee.getWorkedHoursAsDesigner() + " hrs/designer \t"
-                    + employee.getWorkedHoursAsTester() + " hrs/tester \t");
+                    + employee.getWorkedHoursAsTester() + " hrs/tester \t"
+                    + employee.getSalary() + " $\t");
             for (Position position: employee.getPositionList()) {
-                System.out.print(position.getNameOfPosition() + "\t");
+                System.out.println(position.getNameOfPosition() + "\t");
             }
             System.out.println();
             for (Task task: employee.getTaskList()) {

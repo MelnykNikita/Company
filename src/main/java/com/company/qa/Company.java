@@ -1,7 +1,6 @@
 package com.company.qa;
 
 import com.company.qa.Positions.*;
-import com.company.qa.Task.Task;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +13,7 @@ public class Company {
     private List<Employee> employeeList;
     private List<Freelancer> freelancerList;
     private Chief chief;
+    private Accountant accountant;
 
     Company(){
 
@@ -22,7 +22,7 @@ public class Company {
 
         chief = new Chief();
         employeeList.add(new Employee(chief));
-        Accountant accountant = new Accountant();
+        accountant = new Accountant();
         employeeList.add(new Employee(accountant));
 
         this.amountOfEmployees = new Random().nextInt(90) + 8; //Addition of employees
@@ -43,9 +43,13 @@ public class Company {
         freelancerList = chief.giveTaskForEmployeesOrFreelancers(employeeList, freelancerList);
     }
 
+    public void payWeekSalary() {
+        accountant.payWeekSalary(employeeList, freelancerList);
+    }
+
     public void setCurrentTasksForEmployees() {
         for (Employee employee: employeeList) {
-            if (employee.getWorkHoursPerMonth() > employee.getWorkedHours()) {
+            if (employee.getMaxWorkHoursPerMonth() > employee.getWorkedHours()) {
                 employee.setCurrentTask();
             }
         }
@@ -58,7 +62,7 @@ public class Company {
 
     public void incrementWorkedHours() {
         for (Employee employee: employeeList) {
-            if (employee.getWorkHoursPerMonth() > employee.getWorkedHours()) {
+            if (employee.getMaxWorkHoursPerMonth() > employee.getWorkedHours()) {
                 employee.incrementWorkedHours();
             }
         }
