@@ -1,0 +1,111 @@
+			Accounting Report
+
+Employees: 83
+Freelancers: 12
+
+			EMPLOYEES
+
+Employee		Position	     Actual worked hours       Salary		
+
+Molmeedee:		Chief                160 hrs                   4000 $                   
+Marmiazur:		Accountant           160 hrs                   1200 $                   
+Mroredmur:		Manager              144 hrs                   2400 $                   
+Creslaedd:		Manager              152 hrs                   2400 $                   
+Crucloark:		Manager              148 hrs                   2400 $                   
+Krocreder:		Programmer           156 hrs                   1248 $                   
+Reiarcess:		Tester Manager       144 hrs                   2911 $                   
+Crezoredd:		Designer Programmer  160 hrs                   1116 $                   
+Raazoredd:		Tester               152 hrs                   1064 $                   
+Meriraerr:		Tester               148 hrs                   1036 $                   
+Bremirerr:		Designer             152 hrs                   912 $                    
+Jarcreure:		Designer             160 hrs                   960 $                    
+Bresalure:		Programmer Manager   140 hrs                   2976 $                   
+Zormeeder:		Tester               140 hrs                   980 $                    
+Jarzerark:		Programmer           148 hrs                   1184 $                   
+Kromuress:		Tester               140 hrs                   980 $                    
+Reiredred:		Designer             152 hrs                   912 $                    
+Madslaerr:		Programmer           148 hrs                   1184 $                   
+Crozerure:		Manager Programmer   156 hrs                   2976 $                   
+Raysorder:		Manager              160 hrs                   2400 $                   
+Raacrazur:		Programmer Tester    152 hrs                   1145 $                   
+Kroairess:		Programmer Manager   148 hrs                   3000 $                   
+Kroarczur:		Manager Tester       144 hrs                   2918 $                   
+Draslazur:		Programmer           156 hrs                   1248 $                   
+Lukcraerr:		Manager              160 hrs                   2400 $                   
+Reiredarc:		Programmer           144 hrs                   1152 $                   
+Mrolorure:		Programmer           140 hrs                   1120 $                   
+Brecreess:		Manager              160 hrs                   2400 $                   
+Cromirarc:		Manager              148 hrs                   2400 $                   
+Crocrearc:		Tester               144 hrs                   1008 $                   
+Moliraess:		Tester               152 hrs                   1064 $                   
+Zurcreron:		Tester               160 hrs                   1120 $                   
+Reizerure:		Manager Designer     140 hrs                   2790 $                   
+Morcramur:		Manager Tester       144 hrs                   2897 $                   
+Krocraedd:		Programmer Designer  148 hrs                   1034 $                   
+Cryzoress:		Designer             160 hrs                   960 $                    
+Brereddee:		Designer             148 hrs                   888 $                    
+Jagmaress:		Tester               148 hrs                   1036 $                   
+Drasalder:		Designer Programmer  148 hrs                   1044 $                   
+Zurrededd:		Tester               144 hrs                   1008 $                   
+Marirader:		Tester Manager       156 hrs                   2911 $                   
+Molmeemur:		Tester               156 hrs                   1092 $                   
+Krosorerr:		Programmer           160 hrs                   1280 $                   
+Bremiaedd:		Tester Designer      144 hrs                   932 $                    
+Raasordee:		Programmer           144 hrs                   1152 $                   
+Jagmarure:		Tester               144 hrs                   1008 $                   
+Mararcure:		Designer             148 hrs                   888 $                    
+Brezorerr:		Designer             144 hrs                   864 $                    
+Madzorzur:		Tester Programmer    148 hrs                   1113 $                   
+Mrolorron:		Programmer           156 hrs                   1248 $                   
+Raycraarc:		Programmer           160 hrs                   1280 $                   
+Crymiazur:		Programmer           156 hrs                   1248 $                   
+Croslamur:		Designer Tester      148 hrs                   955 $                    
+Madmiredd:		Designer Manager     156 hrs                   2844 $                   
+Zedzoress:		Manager Designer     148 hrs                   2874 $                   
+Madairerr:		Programmer Tester    148 hrs                   1111 $                   
+Mroarkarc:		Programmer           160 hrs                   1280 $                   
+Zurarkess:		Manager Designer     156 hrs                   2880 $                   
+Molarcerr:		Manager Designer     160 hrs                   2898 $                   
+Raycraess:		Designer             140 hrs                   840 $                    
+Crulorark:		Manager              156 hrs                   2400 $                   
+Molsorure:		Manager              140 hrs                   2400 $                   
+Creiraarc:		Designer Tester      152 hrs                   986 $                    
+Cromurmed:		Manager              140 hrs                   2400 $                   
+Morzoredd:		Tester               144 hrs                   1008 $                   
+Creslamed:		Manager              156 hrs                   2400 $                   
+Zurarkdee:		Programmer           156 hrs                   1248 $                   
+Raaredarc:		Tester               140 hrs                   980 $                    
+Jarmeearc:		Designer Manager     152 hrs                   2808 $                   
+Zedcreure:		Manager Programmer   156 hrs                   3064 $                   
+Rayurkess:		Tester Designer      160 hrs                   1041 $                   
+Croairmur:		Programmer Designer  148 hrs                   1050 $                   
+Morsalarc:		Tester Designer      144 hrs                   933 $                    
+Raysalarc:		Tester               140 hrs                   980 $                    
+Mercraure:		Programmer           152 hrs                   1216 $                   
+Jararczur:		Designer             148 hrs                   888 $                    
+Marlorarc:		Manager Programmer   160 hrs                   3048 $                   
+Cromirure:		Tester Manager       152 hrs                   2883 $                   
+Crearcarc:		Tester               160 hrs                   1120 $                   
+Cremiaess:		Tester               156 hrs                   1092 $                   
+Mercloure:		Tester               152 hrs                   1064 $                   
+Lukcrazur:		Tester Manager       140 hrs                   2911 $                   
+Rayredure:		Tester Designer      156 hrs                   1015 $                   
+
+			FREELANCERS
+
+Freelancer		Position			Actual worked hours		   Salary		
+
+Jagcloark:		Accountant           31 hrs                    155 $                    
+Rayarcmur:		Manager              44 hrs                    352 $                    
+Mermurzur:		Programmer           37 hrs                    370 $                    
+Zurzorder:		Designer             45 hrs                    315 $                    
+Jagmeearc:		Tester               38 hrs                    228 $                    
+Mromirder:		Accountant           31 hrs                    155 $                    
+Raamirarc:		Tester               32 hrs                    192 $                    
+Mermirark:		Accountant           29 hrs                    145 $                    
+Drairamed:		Accountant           26 hrs                    130 $                    
+Merzorron:		Accountant           26 hrs                    130 $                    
+Cararcess:		Accountant           24 hrs                    120 $                    
+Cruzorron:		Accountant           25 hrs                    125 $                    
+
+TOTAL					           12888 hrs	                 139921 $
