@@ -9,34 +9,29 @@ public class Employee {
 
     private String name;
     private int maxWorkHoursPerWeek;
-    private int actualWorkHoursPerWeek = 0;
     private int maxWorkHoursPerMonth;
-    private int actualWorkHoursPerMonth = 0;
     private int amountOfPositions;
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
     private int workedHours = 0;
-    private int workedHoursIT = 0;
     private int index = 0;
     private int workedHoursAsProgrammer = 0;
     private int workedHoursAsDesigner = 0;
     private int workedHoursAsTester = 0;
     private int salary = 0;
 
-    private Set<Position> positionList;
+    private Set<Responsible> responsibilities = new HashSet<Responsible>();
+    private Set<Position> positionList = new HashSet<Position>();
     private Programmer programmer;
     private Designer designer;
     private Tester tester;
     private Manager manager;
 
-    private Set<Responsible> responsibilities;
+
 
     Employee() {
 
         name = NameGenerator.generateName();
-        positionList = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
-
         programmer = new Programmer();
         designer = new Designer();
         tester = new Tester();
@@ -55,8 +50,6 @@ public class Employee {
 
     Employee(Chief chief) {
         name = NameGenerator.generateName();
-        positionList = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
         positionList.add(chief);
         this.maxWorkHoursPerWeek = 40;
         this.maxWorkHoursPerMonth = 4 * maxWorkHoursPerWeek;
@@ -64,8 +57,6 @@ public class Employee {
 
     Employee(Accountant accountant) {
         name = NameGenerator.generateName();
-        positionList = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
         positionList.add(accountant);
         responsibilities.add(accountant);
         this.maxWorkHoursPerWeek = 40;
@@ -104,14 +95,6 @@ public class Employee {
         }
     }
 
-    private void incrementWorkedHoursIT(Task task) {
-        for (Responsible responsible: getResponsibilities())
-            if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
-                    && responsible instanceof IT) {
-                this.workedHoursIT++;
-            }
-    }
-
     private void incrementWorkedHoursByITPosition(Task task) {
         for (Responsible responsible: getResponsibilities()) {
             if (task.getName().equalsIgnoreCase(responsible.getNameOfResponsibility())
@@ -137,22 +120,12 @@ public class Employee {
                 Task task = taskList.get(index); //TODO Refactoring
                 task.setCurrentTask(true);
                 task.incrementWorkedHoursPerTask();
-                incrementWorkedHoursIT(task);
                 incrementWorkedHoursByITPosition(task);
-                incrementWorkHoursPerWeek();
             }
             if (taskList.get(index).isTaskExecuted()) {
                 index++;
             }
         }
-    }
-
-    public int getMaxWorkHoursPerWeek() {
-        return maxWorkHoursPerWeek;
-    }
-
-    public Set<Position> getPositionList(){
-        return positionList;
     }
 
     public Set<Responsible> getResponsibilities() {
@@ -169,26 +142,6 @@ public class Employee {
 
     public void incrementWorkedHours() {
         this.workedHours++;
-    }
-
-    public void incrementWorkHoursPerWeek() {
-        this.actualWorkHoursPerWeek++;
-    }
-
-    public int getWorkedHoursIT() {
-        return workedHoursIT;
-    }
-
-    public int getWorkedHoursAsProgrammer() {
-        return workedHoursAsProgrammer;
-    }
-
-    public int getWorkedHoursAsDesigner() {
-        return workedHoursAsDesigner;
-    }
-
-    public int getWorkedHoursAsTester() {
-        return workedHoursAsTester;
     }
 
     public boolean isAvailable() {

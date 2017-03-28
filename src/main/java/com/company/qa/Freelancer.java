@@ -67,7 +67,7 @@ public class Freelancer {
     public void setCurrentTask() {
         if (iterator.hasNext() && index < taskList.size()) {
            if (index == 0 || !(taskList.get(index).isTaskExecuted())) {
-               Task task = taskList.get(index); //TODO Refactoring
+               Task task = taskList.get(index);
                task.setCurrentTask(true);
                task.incrementWorkedHoursPerTask();
                incrementWorkedHours();
@@ -111,10 +111,6 @@ public class Freelancer {
         return positions;
     }
 
-    public int getMaxWorkHoursPerWeek() {
-        return maxWorkHoursPerWeek;
-    }
-
     public void addTask(Task task) {
         for (Responsible responsibility: getResponsibilities()) {
             if (task.isMatchableWithResponsibility(responsibility)) {
@@ -152,10 +148,6 @@ public class Freelancer {
     public void setWeekSalary() {
         this.salary += salaryRate * actualWorkHoursPerWeek;
         this.actualWorkHoursPerWeek = 0;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String positionToString() {

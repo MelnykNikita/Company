@@ -35,7 +35,7 @@ public class Accountant implements Position, Responsible {
 
     public void makeMonthlyReport(List<Employee> employeeList, List<Freelancer> freelancerList) throws IOException {
 
-        File file = new File("\\MonthlyReport.txt");
+        File file = new File("\\MVN\\qa\\data\\MonthlyReport.txt");
         FileWriter fileWriter;
         BufferedWriter bufferedWriter;
         PrintWriter printWriter = null;
@@ -78,7 +78,6 @@ public class Accountant implements Position, Responsible {
                         freelancer.getSalary() + " $"));
                 printWriter.println();
             }
-            
             printWriter.print("\nTOTAL\t\t\t\t\t           " + totalWorkHours
                     + " hrs\t                 " + totalSalary + " $");
         }
@@ -88,7 +87,5 @@ public class Accountant implements Position, Responsible {
         finally {
             printWriter.close();
         }
-
-
     }
 }

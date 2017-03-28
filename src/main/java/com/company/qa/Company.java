@@ -10,7 +10,6 @@ import java.util.Random;
 public class Company {
 
     private int amountOfEmployees;
-    private int amountOfFreelancers;
     private List<Employee> employeeList;
     private List<Freelancer> freelancerList;
     private Chief chief;
@@ -31,9 +30,7 @@ public class Company {
             employeeList.add(new Employee());
         }
 
-        //TODO Delete all freelancers. Add one freelancer, if it needed. ???
-        //this.amountOfFreelancers = new Random().nextInt(50) + 10;
-        freelancerList.add(new Freelancer(new Accountant()));
+        freelancerList.add(new Freelancer(new Accountant())); //Addition of freelancers
         freelancerList.add(new Freelancer(new Manager()));
         freelancerList.add(new Freelancer(new Programmer()));
         freelancerList.add(new Freelancer(new Designer()));
@@ -48,7 +45,7 @@ public class Company {
         accountant.payWeekSalary(employeeList, freelancerList);
     }
 
-    public void makeMonthlyReport() {
+    public void accountantMakesMonthlyReport() {
         try {
             accountant.makeMonthlyReport(employeeList, freelancerList);
         } catch (IOException e) {
@@ -75,21 +72,5 @@ public class Company {
                 employee.incrementWorkedHours();
             }
         }
-    }
-
-    public int getAmountOfEmployees(){
-        return amountOfEmployees;
-    }
-
-    public int getAmountOfFreelancers() {
-        return amountOfFreelancers;
-    }
-
-    public List<Employee> getEmployeeList(){
-        return employeeList;
-    }
-
-    public  List<Freelancer> getFreelancerList() {
-        return freelancerList;
     }
 }
