@@ -19,7 +19,7 @@ public class App
         company.makeMonthlyReport();
 
 
-        System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
+        /*System.out.println("Amount Of Employees: " + company.getAmountOfEmployees());
 
         for (Employee employee: company.getEmployeeList()) {
             System.out.print(employee + ":  " + employee.getMaxWorkHoursPerMonth() + " MAX hrs/month \t"
@@ -60,7 +60,7 @@ public class App
                         + task.isCurrent() + "\t" + task.getWorkedHoursPerTask());
             }
             System.out.println("---------------------------------------------------------");
-        }
+        }*/
 
 
 

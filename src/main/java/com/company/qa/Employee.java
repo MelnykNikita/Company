@@ -1,11 +1,13 @@
 package com.company.qa;
 
+import com.company.qa.Helper.NameGenerator;
 import com.company.qa.Positions.*;
 import com.company.qa.Task.Task;
 import java.util.*;
 
 public class Employee {
 
+    private String name;
     private int maxWorkHoursPerWeek;
     private int actualWorkHoursPerWeek = 0;
     private int maxWorkHoursPerMonth;
@@ -31,6 +33,7 @@ public class Employee {
 
     Employee() {
 
+        name = NameGenerator.generateName();
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
 
@@ -51,6 +54,7 @@ public class Employee {
     }
 
     Employee(Chief chief) {
+        name = NameGenerator.generateName();
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
         positionList.add(chief);
@@ -59,6 +63,7 @@ public class Employee {
     }
 
     Employee(Accountant accountant) {
+        name = NameGenerator.generateName();
         positionList = new HashSet<Position>();
         responsibilities = new HashSet<Responsible>();
         positionList.add(accountant);
@@ -236,5 +241,17 @@ public class Employee {
 
     public int getSalary() {
         return salary;
+    }
+
+    public String positionToString() {
+        String str = "";
+        for (Position position: positionList) {
+            str += position.getNameOfPosition() + " ";
+        }
+        return str;
+    }
+
+    public String toString() {
+        return name;
     }
 }

@@ -1,5 +1,6 @@
 package com.company.qa;
 
+import com.company.qa.Helper.NameGenerator;
 import com.company.qa.Positions.*;
 import com.company.qa.Task.Task;
 
@@ -7,6 +8,7 @@ import java.util.*;
 
 public class Freelancer {
 
+    private String name;
     private List<Task> taskList = new ArrayList<Task>();
     private Iterator<Task> iterator = taskList.iterator();
     private int maxWorkHoursPerWeek = 15;
@@ -17,52 +19,46 @@ public class Freelancer {
     private int salary = 0;
     private int salaryRate;
 
-    private Set<Responsible> responsibilities;
-    private Set<Position> positions;
+    private Set<Responsible> responsibilities = new HashSet<Responsible>();
+    private Set<Position> positions = new HashSet<Position>();
 
     public Freelancer(Freelancer freelancer) {
-        positions = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
+        name = NameGenerator.generateName();
         positions.add(freelancer.getOnePosition());
         responsibilities.add(freelancer.getOneResponsibility());
         salaryRate = freelancer.getSalaryRate();
     }
 
     Freelancer(Accountant accountant) {
-        positions = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
+        name = NameGenerator.generateName();
         positions.add(accountant);
         responsibilities.add(accountant);
         salaryRate = 5;
     }
 
     Freelancer(Tester tester) {
-        positions = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
+        name = NameGenerator.generateName();
         positions.add(tester);
         responsibilities.add(tester);
         salaryRate = 6;
     }
 
     Freelancer(Programmer programmer) {
-        positions = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
+        name = NameGenerator.generateName();
         positions.add(programmer);
         responsibilities.add(programmer);
         salaryRate = 10;
     }
 
     Freelancer(Designer designer) {
-        positions = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
+        name = NameGenerator.generateName();
         positions.add(designer);
         responsibilities.add(designer);
         salaryRate = 7;
     }
 
     Freelancer(Manager manager) {
-        positions = new HashSet<Position>();
-        responsibilities = new HashSet<Responsible>();
+        name = NameGenerator.generateName();
         positions.add(manager);
         responsibilities.add(manager);
         salaryRate = 8;
@@ -156,5 +152,21 @@ public class Freelancer {
     public void setWeekSalary() {
         this.salary += salaryRate * actualWorkHoursPerWeek;
         this.actualWorkHoursPerWeek = 0;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String positionToString() {
+        String str = "";
+        for (Position position: positions) {
+            str += position.getNameOfPosition();
+        }
+        return str;
+    }
+
+    public String toString() {
+        return name;
     }
 }
